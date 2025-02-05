@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import Navbar from "./(section)/_components/Navbar";
-import Sidebar from "./(section)/_components/Sidebar";
+
 import {
   Geist,
   Geist_Mono,
