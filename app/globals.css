@@ -2,20 +2,323 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background-color: whitesmoke;
 }
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+h1 {
+  font-size: 2rem;
+  font-size: clamp(1.8rem, 0.48469387755102034rem + 3.2653061224489797vw, 4.5rem);
+}
+
+/* h2 {
+  font-size: clamp(32px,
+      1.2241379310344829rem + 3.3103448275862064vw,
+      56px);
+}
+
+h3 {
+  font-size: clamp(28px,
+      1.6206896551724137rem + 0.5517241379310345vw,
+      32px);
+} */
+
+p {
+  font-size: clamp(1rem, 1.2755102040816326rem + 1.2244897959183674vw, 1.3rem);
+}
+
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  cursor: pointer;
+  display: inline-block;
+}
+
+
+
+@font-face {
+  font-family: "Olive";
+  src: url(../app/fonts/Antique-Olive-Std-Black_3861.ttf) format("truetype");
+  font-weight: normal;
+  font-size: normal;
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.newSeperator {
+  width: max-content;
+  margin: 1em auto;
+
+  &::after {
+    content: '';
+    display: block;
+    height: 2px;
+    background-color: currentColor;
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+.newSeperator-2 {
+  width: max-content;
+
+
+  &::after {
+    content: '';
+    display: block;
+    height: 2px;
+    background-color: #171717;
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+.new-container-2 {
+  width: min(100% - 1rem, 100rem);
+  margin-inline: auto;
+}
+
+.new-container {
+  width: min(100% - 2rem, 90rem);
+  margin-inline: auto;
+}
+
+.new-container-contact {
+  width: min(100% - 1rem, 30rem);
+  margin-inline: auto;
+}
+
+/* grid container */
+
+/* .photo-gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+} */
+
+/* media queries */
+/* xs */
+@media (min-width: 29.688rem) {
+  .new-container-2 {
+    width: min(100% - 1rem, 100rem);
+    margin-inline: auto;
+  }
+
+
+  .new-container {
+    width: min(100% - 1rem, 90rem);
+    margin-inline: auto;
+  }
+
+  .new-container-contact {
+    width: min(100% - 1rem, 30rem);
+    margin-inline: auto;
+  }
+
+}
+
+/* sm */
+@media (min-width: 40rem) {
+  .new-container-2 {
+    width: min(100% - 1rem, 100rem);
+    margin-inline: auto;
+  }
+
+  .new-container {
+    width: min(100% - 1rem, 90rem);
+    margin-inline: auto;
+  }
+
+  .new-container-contact {
+    width: min(100% - 1rem, 30rem);
+    margin-inline: auto;
+  }
+
+}
+
+/* md */
+@media (min-width: 48rem) {
+  .new-container-2 {
+    width: min(100% - 1rem, 100rem);
+    margin-inline: auto;
+  }
+
+
+  .new-container {
+    width: min(100% - 1rem, 90rem);
+    margin-inline: auto;
+  }
+
+  .new-container-contact {
+    width: min(100% - 1rem, 30rem);
+    margin-inline: auto;
+  }
+
+}
+
+/* lg */
+@media (min-width: 64rem) {
+  .new-container-2 {
+    width: min(100% - 1rem, 100rem);
+    margin-inline: auto;
+  }
+
+
+  .new-container {
+    width: min(100% - 1rem, 90rem);
+    margin-inline: auto;
+  }
+
+  .new-container-contact {
+    width: min(100% - 1rem, 30rem);
+    margin-inline: auto;
+  }
+
+}
+
+/* xl */
+@media (min-width: 80rem) {
+  .new-container-2 {
+    width: min(100% - 1rem, 100rem);
+    margin-inline: auto;
+  }
+
+  .new-container {
+    width: min(100% - 1rem, 90rem);
+    margin-inline: auto;
+  }
+
+  .new-container-contact {
+    width: min(100% - 1rem, 30rem);
+    margin-inline: auto;
+  }
+
+}
+
+/* 2xl */
+@media (min-width: 96rem) {
+  .new-container-2 {
+    width: min(100% - 1rem, 100rem);
+    margin-inline: auto;
+  }
+
+
+  .new-container {
+    width: min(100% - 1rem, 90rem);
+    margin-inline: auto;
+  }
+
+  .new-container-contact {
+    width: min(100% - 1rem, 30rem);
+    margin-inline: auto;
+  }
+
+}
+
+/* xs */
+/* @media (min-width: 475px) {} */
+
+/* sm */
+/* @media (min-width: 640px) {} */
+
+/* md */
+/* @media (min-width: 768px) {} */
+
+/* lg */
+/* @media (min-width: 1024px) {} */
+
+/* xl */
+/* @media (min-width: 1280px) {} */
+
+/* 2xl */
+/* @media (min-width: 1536px) {} */
