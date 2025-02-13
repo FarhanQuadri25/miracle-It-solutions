@@ -41,7 +41,7 @@ const Firstsection = () => {
             transform="translate(160 160)"
           />
           <path
-            fill="#FFC300"
+            fill="#8A2BE2"
             d="M30,-20C40,10,60,40,50,60C40,80,10,90,-10,80C-30,70,-40,50,-50,30C-60,10,-50,-20,-30,-30C-10,-40,10,-30,30,-20Z"
             transform="translate(80 200)"
           />

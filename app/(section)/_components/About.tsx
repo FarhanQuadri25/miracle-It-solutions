@@ -50,7 +50,7 @@ const About = () => {
       </div>
 
       <div className="mx-auto mt-14 max-w-2xl sm:mt-10 lg:mt-10 lg:max-w-4xl">
-        <div className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
+        <div className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none md:grid-cols-2 lg:gap-y-16">
           {FEATURES.map(({ name, description, icon: Icon }, index) => (
             <div
               key={index}

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-
 import { Geist_Mono, Inter, Poppins, Montserrat } from "next/font/google";
-import "./globals.css";
+import "./globals.scss";
 
 const geistmono = Geist_Mono({
   subsets: ["latin"],
