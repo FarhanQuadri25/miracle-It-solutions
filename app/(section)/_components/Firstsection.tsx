@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const Firstsection = () => {
   return (
-    <section className="text-center mt-14 px-4" id="home">
+    <section className="text-center mt-28 md:mt-14 px-4" id="home">
       <span className="text-xs sm:text-sm text-primary font-medium tracking-tight bg-greenaccent px-4 py-2 rounded-full">
         Build your next website with us
       </span>

@@ -27,8 +27,8 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "miracle It solutions",
-  description: "miracle It solutions",
+  title: "Miracle IT Solutions",
+  description: "Miracle IT Solutions",
 };
 
 export default function RootLayout({
