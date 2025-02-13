@@ -1,13 +1,12 @@
 import type { Metadata } from "next";
 
-import {
-
-  Inter,
-  Poppins,
-  Montserrat,
-} from "next/font/google";
+import { Geist_Mono, Inter, Poppins, Montserrat } from "next/font/google";
 import "./globals.css";
 
+const geistmono = Geist_Mono({
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
+});
 
 const inter = Inter({
   subsets: ["latin"],
@@ -40,7 +39,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${poppins.variable} ${inter.variable} ${montserrat.variable} antialiased bg-gray-50 text-zinc-800`}
+        className={`${poppins.variable} ${inter.variable} ${montserrat.variable} ${geistmono.className} antialiased bg-gray-50 text-zinc-800`}
       >
         {children}
       </body>

@@ -16,7 +16,7 @@ export default function Sidebar() {
     setIsOpen((prev) => !prev);
   };
   return (
-    <nav className="fixed top-0 left-0 w-full bg-[whitesmoke] text-[#171717] p-6">
+    <nav className="fixed top-0 left-0 w-full bg-[whitesmoke] text-[#171717] p-6 z-[10000]">
       <div className="flex justify-between items-center">
         {/* Logo */}
         <h1 className="text-2xl font-bold font-inter">Logo</h1>
@@ -27,8 +27,8 @@ export default function Sidebar() {
           <motion.div
             initial={{ y: -100, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            exit={{ y: -100, opacity: 0 }}
-            className="fixed top-0 left-0 bottom-0 h-full w-full bg-[#171717]"
+            exit={{ y: -100, opacity: 1 }}
+            className="fixed top-0 left-0 bottom-0 h-full w-full bg-indigo-700 bg-opacity-300 z-[9999]"
           >
             <div
               className="flex justify-self-end p-4 font-inter text-white text-2xl font-bold"

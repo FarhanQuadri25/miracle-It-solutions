@@ -11,11 +11,11 @@ export default function Navbar() {
     <nav className="w-full text-[#171717] px-8 py-6">
       <div className="flex justify-between new-container items-center">
         {/* Logo */}
-        <h1 className="text-2xl font-poppins font-extrabold">Logo</h1>
+        <h1 className="text-2xl font-extrabold">Logo</h1>
         <div className="ml-auto mr-16">
           <ul className="flex items-center justify-center gap-8">
             {NAV_LINKS.map((link) => (
-              <li key={link.id} className="text-xl font-olive font-[600]">
+              <li key={link.id} className="text-xl  font-extrabold">
                 <Link href={`#${link.link}`}>{link.label}</Link>
               </li>
             ))}
@@ -24,7 +24,7 @@ export default function Navbar() {
         <div>
           <Link
             href={`/`}
-            className=" border-2 border-zinc-800 font-poppins font-bold px-6 py-4 rounded-3xl hover:bg-purpleaccent transition-all duration-75 ease-in-out"
+            className=" border-2 border-zinc-800 font-bold px-6 py-2 rounded-3xl hover:bg-purpleaccent transition-all duration-75 ease-in-out"
           >
             Contact Us
           </Link>

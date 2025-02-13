@@ -1,3 +1,4 @@
+import About from "./_components/About";
 import Firstsection from "./_components/Firstsection";
 import Navbar from "./_components/Navbar";
 import Sidebar from "./_components/Sidebar";
@@ -15,6 +16,7 @@ export default function HomePage() {
       </header>
       <main>
         <Firstsection />
+        <About />
       </main>
     </>
   );
