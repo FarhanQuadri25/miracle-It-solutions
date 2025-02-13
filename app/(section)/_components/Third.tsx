@@ -1,9 +1,8 @@
-"use client";
+
 
 import Image from "next/image";
 import { Code, Globe, Layout, School, Brush, Settings } from "lucide-react";
-import { motion } from "motion/react";
-import styles from "./styles.module.scss";
+
 
 type Feature = {
   name: string;
