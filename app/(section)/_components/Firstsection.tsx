@@ -8,7 +8,7 @@ const Firstsection = () => {
         Build your next website with us
       </span>
       <h1 className="mt-6 text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-medium leading-tight">
-        Miracle It <span className="text-indigo-700">Solutions!</span>
+        Miracle IT <span className="text-indigo-700">Solutions!</span>
       </h1>
       <p className="max-w-3xl sm:max-w-4xl lg:max-w-5xl mt-4 font-light lg:text-muted-foreground tracking-tight mx-auto text-sm sm:text-base md:text-lg">
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cupiditate id
