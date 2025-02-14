@@ -9,7 +9,7 @@ const Firstsection = () => {
       </span>
       <h1 className="mt-6 text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-medium leading-tight uppercase">
         Miracle IT{" "}
-        <strong className=" text-indigo-700 font-extrabold">Solutions!</strong>
+        <strong className=" text-indigo-700">Solutions!</strong>
         <span className="block text-lg font-extrabold mt-2">
           A complete solution to customize softwares, web applications and
           websites
