@@ -19,7 +19,7 @@ export default function Sidebar() {
     <nav className="fixed top-0 left-0 w-full bg-[whitesmoke] text-[#171717] p-6 z-[10000]">
       <div className="flex justify-between items-center">
         {/* Logo */}
-        {/* <h1 className="text-2xl font-bold font-inter">Logo</h1> */}
+        <h1 className="text-2xl font-bold font-inter"></h1>
         <Menu size={40} onClick={handleClick} />
       </div>
       <AnimatePresence mode="wait">
