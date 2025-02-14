@@ -7,12 +7,25 @@ const Firstsection = () => {
       <span className="text-xs sm:text-sm text-primary font-medium tracking-tight bg-greenaccent px-4 py-2 rounded-full">
         Build your next website with us
       </span>
-      <h1 className="mt-6 text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-medium leading-tight">
-        Miracle IT <span className="text-indigo-700">Solutions!</span>
+      <h1 className="mt-6 text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-medium leading-tight uppercase">
+        Miracle IT{" "}
+        <strong className=" text-indigo-700 font-extrabold">Solutions!</strong>
+        <span className="block text-lg font-extrabold mt-2">
+          A complete solution to customize softwares, web applications and
+          websites
+        </span>
       </h1>
-      <p className="max-w-3xl sm:max-w-4xl lg:max-w-5xl mt-4 font-light lg:text-muted-foreground tracking-tight mx-auto text-sm sm:text-base md:text-lg">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cupiditate id
-        placeat illo iste, ipsum expedita labore dignissimos ad quasi officiis?
+      <p className="max-w-3xl sm:max-w-4xl lg:max-w-6xl mt-4 font-medium lg:text-muted-foreground select-text tracking-tight mx-auto text-sm  sm:text-base md:text-lg">
+        We develop{" "}
+        <strong className="text-indigo-700 underline">
+          customize software applications
+        </strong>
+        , offer system maintenance and AMCs, and{" "}
+        <strong className="text-indigo-700 underline">
+          design professional websites
+        </strong>{" "}
+        to enhance your business operations, ensuring reliability, efficiency,
+        and a strong online presence.
       </p>
 
       {/* Buttons */}

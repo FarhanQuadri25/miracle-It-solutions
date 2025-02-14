@@ -3,7 +3,7 @@ import Link from "next/link";
 const NAV_LINKS = [
   { id: 1, label: "Home", link: "home" },
   { id: 2, label: "About", link: "about" },
-  { id: 3, label: "Contact", link: "Contact Us" },
+  
 ];
 
 export default function Navbar() {
@@ -11,11 +11,11 @@ export default function Navbar() {
     <nav className="w-full text-[#171717] px-8 py-6">
       <div className="flex justify-between new-container items-center">
         {/* Logo */}
-        <h1 className="text-2xl font-extrabold">Logo</h1>
+        {/* <h1 className="text-2xl font-extrabold">Logo</h1> */}
         <div className="ml-auto mr-16">
-          <ul className="flex items-center justify-center gap-8">
+          <ul className="flex items-center justify-center gap-5">
             {NAV_LINKS.map((link) => (
-              <li key={link.id} className="text-xl  font-extrabold">
+              <li key={link.id} className="text-xl font-extrabold">
                 <Link href={`#${link.link}`}>{link.label}</Link>
               </li>
             ))}
