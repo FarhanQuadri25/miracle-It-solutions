@@ -65,7 +65,7 @@ const Tab = ({ children, href, setPosition }: TabProps) => {
           left: ref.current.offsetLeft,
         });
       }}
-      className="relative z-10 block cursor-pointer px-3 py-1.5 text-xs uppercase text-white mix-blend-difference md:px-5 md:py-3 md:text-base"
+      className="relative z-10 block cursor-pointer px-3 py-1.5 text-xl font-inter font-normal uppercase text-white mix-blend-difference md:px-5 md:py-3 md:text-base"
     >
       <Link href={href}>{children}</Link>
     </li>
@@ -85,7 +85,7 @@ const Cursor = ({ position }: CursorProps) => {
         width: position.width,
         opacity: position.opacity,
       }}
-      className="absolute z-0 h-7 rounded-full bg-black md:h-12"
+      className="absolute z-0 h-7 rounded-full bg-[#171717] md:h-12"
     />
   );
 };
