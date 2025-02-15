@@ -7,14 +7,14 @@ const Firstsection = () => {
       <span className="text-xs sm:text-sm text-primary font-medium tracking-tight bg-greenaccent px-4 py-2 rounded-full">
         Build your next website with us
       </span>
-      <h2 className="mt-6 text-2xl sm:text-5xl md:text-6xl lg:text-7xl font-medium leading-tight uppercase">
+      <h2 className="mt-6 text-[#171717] text-2xl sm:text-5xl md:text-6xl lg:text-7xl font-medium leading-tight uppercase">
         Miracle IT <strong className=" text-indigo-700">Solutions!</strong>
-        <span className="block text-lg font-semibold mt-2">
+        <span className="block text-base text-muted-foreground font-semibold mt-2">
           A complete solution to customize softwares, web applications and
           websites
         </span>
       </h2>
-      <p className="max-w-3xl sm:max-w-4xl lg:max-w-6xl mt-4 font-medium lg:text-muted-foreground select-text tracking-tight mx-auto text-sm  sm:text-base md:text-lg">
+      <p className="max-w-3xl sm:max-w-4xl lg:max-w-6xl mt-4 font-medium text-slate-700 select-text tracking-tight mx-auto text-sm  sm:text-base md:text-lg">
         We develop{" "}
         <strong className="text-indigo-700 underline">
           customize software applications

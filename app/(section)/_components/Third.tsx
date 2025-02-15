@@ -1,8 +1,5 @@
-
-
 import Image from "next/image";
 import { Code, Globe, Layout, School, Brush, Settings } from "lucide-react";
-
 
 type Feature = {
   name: string;
@@ -61,9 +58,7 @@ const Third = () => {
           eveniet aliquid atque velit iste.
         </p>
       </div>
-       <div
-        className={`relative mx-[1rem] mt-[5rem] mb-[5rem]`}
-      >
+      <div className={`relative mx-[1rem] mt-[5rem] mb-[5rem]`}>
         <Image
           src={`/images/new-cover.png`}
           width={900}
@@ -71,15 +66,17 @@ const Third = () => {
           alt="cover-image"
           className="border rounded-2xl shadow-2xl relative mx-auto"
         />
-      </div> 
-    
+      </div>
+
       <div className="new-container px-[1rem] pb-[4rem]">
-        <div className="grid mt-16 gird-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-[5rem] md:gap-y-12 pb-[4rem] sm:mt-12 text-white">
+        <div className="grid mt-16 gird-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-[2rem] md:gap-y-12 pb-[4rem] sm:mt-12 text-white">
           {NEW_FEATURES.map(({ name, description, icon: Icon }, index) => (
-            <div className="flex flex-col gap-4" key={index}>
+            <div className="flex flex-col p-4 gap-4" key={index}>
               <div className="text-indigo-700">{<Icon size={40} />}</div>
               <h2 className="font-bold text-2xl ">{name}</h2>
-              <p className="text-muted-foreground">{description}</p>
+              <p className="text-muted-foreground leading-snug">
+                {description}
+              </p>
             </div>
           ))}
         </div>
