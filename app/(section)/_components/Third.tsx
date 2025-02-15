@@ -48,7 +48,7 @@ const NEW_FEATURES: Feature[] = [
 
 const Third = () => {
   return (
-    <section className="min-h-screen bg-[rgb(17,17,17)]">
+    <section className="min-h-screen bg-[rgb(17,17,17)]" id="about">
       <div className="max-w-4xl pt-[4rem] px-[1rem] mx-auto">
         <h2 className="text-white text-2xl font-medium leading-tight tracking-tight lg:text-6xl md:text-5xl sm:text-3xl">
           Miracle IT Solutions Build Your New Website With Us.
