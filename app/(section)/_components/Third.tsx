@@ -4,7 +4,7 @@ import { Code, Globe, Layout, School, Brush, Settings } from "lucide-react";
 type Feature = {
   name: string;
   description: string;
-  icon: React.ElementType;
+  icon?: React.ElementType;
 };
 
 const NEW_FEATURES: Feature[] = [
@@ -70,7 +70,7 @@ const Third = () => {
 
       <div className="new-container px-[1rem] pb-[4rem]">
         <div className="grid mt-16 gird-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-[2rem] md:gap-y-12 pb-[4rem] sm:mt-12 text-white">
-          {NEW_FEATURES.map(({ name, description, icon: Icon }, index) => (
+          {NEW_FEATURES.map(({ name, description }, index) => (
             <div className="flex flex-col p-4 gap-4" key={index}>
               {/* <div className="text-indigo-700">{<Icon size={40} />}</div> */}
               <h2 className="font-bold text-2xl ">{name}</h2>
