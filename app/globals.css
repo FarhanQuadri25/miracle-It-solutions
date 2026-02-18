@@ -27,7 +27,6 @@ ul {
   list-style: none;
 }
 
-
 h1 {
   font-size: 2rem;
   font-size: clamp(
@@ -98,6 +97,10 @@ button {
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
+    --color-new-accent: #d4ff00;
+    --color-new-neutral: #4a4a4a;
+    --color-new-dark: #1a1a1a;
+    --color-new-light-color: #f5f5f5;
   }
 
   .dark {
@@ -179,8 +182,6 @@ button {
   width: min(100% - 1rem, 30rem);
   margin-inline: auto;
 }
-
-
 
 /* grid container */
 

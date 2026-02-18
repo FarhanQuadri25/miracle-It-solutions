@@ -23,6 +23,10 @@ export default {
 				greenaccent: "#00D9B8",
 				yellowaccent: "#FFD074",
 				orangeaccent: "#E76F51",
+				"new-accent": "#d4ff00",
+				"new-neutral": "#4a4a4a",
+				"new-dark": "#1a1a1a",
+				"new-light-color": "#f5f5f5",
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				card: {
