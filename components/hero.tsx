@@ -20,14 +20,14 @@ const heroContent = {
 };
 
 // App Transaction Data
-const appTransactions = [
-    { name: 'Costa Coffee', date: 'Wed 2 March', amount: '11.40 €', icon: '☕' },
-    { name: 'Grover', date: 'Wed 2 February', amount: '29.00 €', icon: '📦' },
-    { name: 'Figma Team', date: 'Local transfer', amount: '90.45 €', icon: '🎨' },
-    { name: 'Dropbox', date: 'Team license', amount: '11.90 €', icon: '📁' },
-    { name: 'Uber', date: 'Taxi ride', amount: '13.81 €', icon: '🚗' },
-    { name: 'Costa Coffee', date: 'Expense pending', amount: '8.00 €', icon: '☕' },
-];
+// const appTransactions = [
+//     { name: 'Costa Coffee', date: 'Wed 2 March', amount: '11.40 €', icon: '☕' },
+//     { name: 'Grover', date: 'Wed 2 February', amount: '29.00 €', icon: '📦' },
+//     { name: 'Figma Team', date: 'Local transfer', amount: '90.45 €', icon: '🎨' },
+//     { name: 'Dropbox', date: 'Team license', amount: '11.90 €', icon: '📁' },
+//     { name: 'Uber', date: 'Taxi ride', amount: '13.81 €', icon: '🚗' },
+//     { name: 'Costa Coffee', date: 'Expense pending', amount: '8.00 €', icon: '☕' },
+// ];
 
 const Hero = () => {
     return (

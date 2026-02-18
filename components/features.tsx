@@ -57,7 +57,7 @@ const NEW_FEATURES: Feature[] = [
 ]
 
 // Individual Feature Card Component
-function FeatureCard({ feature, index }: { feature: Feature; index: number }) {
+function FeatureCard({ feature }: { feature: Feature }) {
     const Icon = feature.icon
 
     return (
@@ -125,7 +125,7 @@ export function FeaturesSection() {
             {/* Features Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {NEW_FEATURES.map((feature, index) => (
-                    <FeatureCard key={feature.name} feature={feature} index={index} />
+                    <FeatureCard key={feature.name} feature={feature} />
                 ))}
             </div>
         </section>
@@ -133,7 +133,7 @@ export function FeaturesSection() {
 }
 
 // Alternative: Compact Card Version (FeatureCardCompact)
-export function FeatureCardCompact({ feature, index }: { feature: Feature; index: number }) {
+export function FeatureCardCompact({ feature }: { feature: Feature;  }) {
     const Icon = feature.icon
 
     return (

@@ -5,10 +5,6 @@ import {
     Twitter,
     Linkedin,
     Instagram,
-    Mail,
-    Phone,
-    MapPin,
-    ArrowUpRight,
     Zap
 } from "lucide-react"
 
