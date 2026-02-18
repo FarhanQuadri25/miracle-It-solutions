@@ -52,7 +52,7 @@ export function Footer() {
                         </div> */}
 
                         {/* Social Links */}
-                        <div className="flex items-center gap-3 pt-2">
+                        {/* <div className="flex items-center gap-3 pt-2">
                             {socialLinks.map((social) => (
                                 <a
                                     key={social.name}
@@ -63,7 +63,7 @@ export function Footer() {
                                     <social.icon size={18} className="text-[#9a9a9a] group-hover:text-new-dark transition-colors" />
                                 </a>
                             ))}
-                        </div>
+                        </div> */}
                     </div>
 
 
@@ -111,38 +111,7 @@ export function Footer() {
     )
 }
 
-// Alternative: Simple Footer Version
-export function SimpleFooter() {
-    return (
-        <footer className="bg-new-dark text-white border-t border-white/10">
-            <div className="max-w-7xl mx-auto px-8 py-8">
-                <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-                    <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 bg-new-accent rounded-lg flex items-center justify-center">
-                            <Zap size={16} className="text-new-dark" />
-                        </div>
-                        <span className="font-bold">Miracle IT Solutions</span>
-                    </div>
-                    <p className="text-[#9a9a9a] text-sm">
-                        © {new Date().getFullYear()} Miracle IT Solutions. All rights reserved.
-                    </p>
-                    <div className="flex items-center gap-4">
-                        {socialLinks.slice(0, 3).map((social) => (
-                            <a
-                                key={social.name}
-                                href={social.href}
-                                className="text-[#9a9a9a] hover:text-new-accent transition-colors"
-                                aria-label={social.name}
-                            >
-                                <social.icon size={20} />
-                            </a>
-                        ))}
-                    </div>
-                </div>
-            </div>
-        </footer>
-    )
-}
+
 
 export default Footer
 

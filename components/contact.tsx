@@ -21,7 +21,6 @@ import { Send, User, Mail, Phone, MessageSquare } from "lucide-react"
 import { inter } from "@/lib/fonts"
 import { Card } from "./ui/card"
 
-// Zod validation schema
 const formSchema = z.object({
     firstName: z.string().min(2, {
         message: "First name must be at least 2 characters.",
@@ -58,8 +57,6 @@ export function ContactForm() {
 
     function onSubmit(values: FormValues) {
         console.log("Form Values:", values)
-        // Here you would typically send to API
-        // console.log(JSON.stringify(values, null, 2))
     }
 
     return (
@@ -68,7 +65,7 @@ export function ContactForm() {
                 <div className="max-w-3xl mx-auto">
                     {/* Header */}
                     <div className="text-center mb-12">
-                        <span className="inline-block px-4 py-1.5 bg-new-accent  text-new-dark text-xs font-bold rounded-full mb-4">
+                        <span className="inline-block px-4 py-1.5 bg-new-accent text-new-dark text-xs font-bold rounded-full mb-4">
                             GET IN TOUCH
                         </span>
                         <h2 className="text-4xl md:text-5xl font-bold text-new-dark tracking-tighter leading-tight mb-4">
@@ -93,7 +90,7 @@ export function ContactForm() {
                                                 </FormLabel>
                                                 <FormControl>
                                                     <Input
-                                                        placeholder="John"
+                                                        placeholder="Your first name"
                                                         {...field}
                                                         className="h-12 border-[#e5e5e5] focus:border-new-dark focus:ring-new-accent rounded-xl"
                                                     />
@@ -114,7 +111,7 @@ export function ContactForm() {
                                                 </FormLabel>
                                                 <FormControl>
                                                     <Input
-                                                        placeholder="Doe"
+                                                        placeholder="Your last name"
                                                         {...field}
                                                         className="h-12 border-[#e5e5e5] focus:border-new-dark focus:ring-new-accent rounded-xl"
                                                     />
@@ -139,7 +136,7 @@ export function ContactForm() {
                                                 <FormControl>
                                                     <Input
                                                         type="email"
-                                                        placeholder="john@example.com"
+                                                        placeholder="you@example.com"
                                                         {...field}
                                                         className="h-12 border-[#e5e5e5] focus:border-new-dark focus:ring-new-accent rounded-xl"
                                                     />
@@ -161,7 +158,7 @@ export function ContactForm() {
                                                 <FormControl>
                                                     <Input
                                                         type="tel"
-                                                        placeholder="+1 (555) 000-0000"
+                                                        placeholder="+91 98765 43210"
                                                         {...field}
                                                         className="h-12 border-[#e5e5e5] focus:border-new-dark focus:ring-new-accent rounded-xl"
                                                     />
@@ -184,7 +181,7 @@ export function ContactForm() {
                                             </FormLabel>
                                             <FormControl>
                                                 <Input
-                                                    placeholder="Project Inquiry"
+                                                    placeholder="e.g. Web Development Inquiry"
                                                     {...field}
                                                     className="h-12 border-[#e5e5e5] focus:border-new-dark focus:ring-new-accent rounded-xl"
                                                 />

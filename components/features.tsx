@@ -115,7 +115,7 @@ export function FeaturesSection() {
                     OUR SERVICES
                 </span>
                 <h2 className={cn("text-4xl md:text-5xl font-bold text-new-dark tracking-tighter leading-tight mb-1", inter.className)}>
-                    What We Do Best
+                    What We Do
                 </h2>
                 <p className={cn("text-new-neutral text-lg max-w-3xl mx-auto font-medium tracking-tighter leading-tight", inter.className)}>
                     Comprehensive digital solutions tailored to elevate your business and streamline operations
@@ -133,7 +133,7 @@ export function FeaturesSection() {
 }
 
 // Alternative: Compact Card Version (FeatureCardCompact)
-export function FeatureCardCompact({ feature }: { feature: Feature;  }) {
+export function FeatureCardCompact({ feature }: { feature: Feature; }) {
     const Icon = feature.icon
 
     return (
