@@ -8,7 +8,7 @@ import { inter } from "@/lib/fonts";
 
 const navLinks = [
   { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
+  // { label: "About", href: "#about" },
   { label: "Features", href: "#features" },
 ];
 

@@ -23,7 +23,7 @@
 //   );
 // }
 
-'use client';
+"use client";
 
 import Navbar from "@/components/navbar";
 import Hero from "@/components/hero";
