@@ -42,7 +42,7 @@ const Navbar = () => {
                 "text-new-dark font-black text-base uppercase tracking-tight hidden sm:block",
                 inter.className,
               )}>
-              Miracle IT
+              Miracle IT Solutions
             </span>
           </Link>
 

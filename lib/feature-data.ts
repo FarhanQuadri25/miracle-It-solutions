@@ -274,9 +274,9 @@ export const FEATURES: FeatureDetail[] = [
     tag: "Enterprise",
     tagline: "Accurate books. Clear insights. Zero guesswork.",
     description:
-      "A full-featured accounting system covering ledgers, accounts payable and receivable, bank reconciliation, tax reporting, and real-time financial dashboards.",
+      "A full-featured accounting system covering ledgers, accounts payable and receivable, tax reporting, and real-time financial dashboards.",
     longDescription:
-      "From day-to-day bookkeeping to month-end close, our financial accounting module handles the full accounting cycle. Double-entry ledgers, automated journal entries, and bank reconciliation tools keep your books clean and current. Management dashboards surface P&L, cash flow, and balance sheet data in real time — giving decision-makers the financial clarity they need, exactly when they need it.",
+      "From day-to-day bookkeeping to month-end close, our financial accounting module handles the full accounting cycle. Double-entry ledgers, automated journal entries, tools keep your books clean and current. Management dashboards surface P&L, cash flow, and balance sheet data in real time — giving decision-makers the financial clarity they need, exactly when they need it.",
     icon: BookOpen,
     highlights: [
       {
@@ -286,10 +286,6 @@ export const FEATURES: FeatureDetail[] = [
       {
         title: "Accounts Payable & Receivable",
         body: "Invoice tracking, payment scheduling, and aging reports for full cash flow control.",
-      },
-      {
-        title: "Bank Reconciliation",
-        body: "Automated transaction matching to keep your books aligned with bank statements.",
       },
       {
         title: "Tax & Compliance Reporting",
