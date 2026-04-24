@@ -9,10 +9,15 @@ import {
   Globe,
   Brush,
   Settings2,
+  Pill,
+  Package,
+  BookOpen,
+  Users,
+  UtensilsCrossed,
+  FileSpreadsheet,
   LucideIcon,
 } from "lucide-react";
 
-// Map of icon IDs to actual components (client-side only)
 const ICON_MAP: Record<string, LucideIcon> = {
   "school-management": School,
   "landing-page-development": Layout,
@@ -20,6 +25,12 @@ const ICON_MAP: Record<string, LucideIcon> = {
   "seo-performance": Globe,
   "ui-ux-design": Brush,
   "custom-web-applications": Settings2,
+  "pharmacy-application": Pill,
+  "inventory-control": Package,
+  "financial-accounting": BookOpen,
+  "payroll-management": Users,
+  "restaurant-management": UtensilsCrossed,
+  "excel-integration": FileSpreadsheet,
 };
 
 interface FeatureDetailClientProps {
@@ -27,29 +38,28 @@ interface FeatureDetailClientProps {
   allFeaturesIds: number[];
 }
 
-export default function FeatureDetailClient({ 
-  featureId, 
-  allFeaturesIds 
+export default function FeatureDetailClient({
+  featureId,
+  allFeaturesIds,
 }: FeatureDetailClientProps) {
   const feature = FEATURES[featureId];
-  const allFeatures = allFeaturesIds.map(id => FEATURES[id]);
-  
-  // Add the icon component back on the client side
+  const allFeatures = allFeaturesIds.map((id) => FEATURES[id]);
+
   const featureWithIcon = {
     ...feature,
     icon: ICON_MAP[feature.slug],
   };
-  
-  const allFeaturesWithIcons = allFeatures.map(f => ({
+
+  const allFeaturesWithIcons = allFeatures.map((f) => ({
     ...f,
     icon: ICON_MAP[f.slug],
   }));
 
   return (
-    <FeatureDetailLayout 
-      feature={featureWithIcon} 
-      allFeatures={allFeaturesWithIcons} 
-      key={feature.slug} // Add key for proper hydration
+    <FeatureDetailLayout
+      feature={featureWithIcon}
+      allFeatures={allFeaturesWithIcons}
+      key={feature.slug}
     />
   );
 }

@@ -15,10 +15,11 @@ import {
 import type { FeatureDetail } from "@/lib/feature-data";
 
 const TAG_STYLES: Record<string, string> = {
-  Enterprise: "bg-blue-200 text-blue-700 border border-blue-300",
-  Design: "bg-violet-200 text-violet-700 border border-violet-300",
-  Engineering: "bg-emerald-200 text-emerald-700 border border-emerald-300",
-  Growth: "bg-amber-200 text-amber-700 border border-amber-300",
+  Enterprise: "bg-indigo-100 text-indigo-800 border border-indigo-400",
+  Design: "bg-fuchsia-100 text-fuchsia-800 border border-fuchsia-400",
+  Engineering: "bg-teal-100 text-teal-800 border border-teal-400",
+  Growth: "bg-orange-100 text-orange-800 border border-orange-400",
+  Productivity: "bg-lime-100 text-lime-800 border border-lime-400",
 };
 
 // ── Photo Slider ──────────────────────────────────────────────
@@ -246,6 +247,55 @@ export default function FeatureDetailLayout({
 
         {/* Two-column layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
+          {/* ── RIGHT COLUMN — Sidebar ── */}
+          <div className="lg:col-span-4 space-y-5">
+            {/* All services nav */}
+            <SidebarNav features={allFeatures} activeSlug={feature.slug} />
+
+            {/* CTA card */}
+            {/* <div className="bg-[#1a1a1a] border-2 border-[#1a1a1a] shadow-[4px_4px_0px_0px_#1a1a1a] overflow-hidden">
+              <div className="p-6 space-y-4">
+                <p
+                  className={cn(
+                    "text-[10px] uppercase tracking-[0.3em] text-new-accent font-bold",
+                    inter.className,
+                  )}>
+                  Interested?
+                </p>
+                <p
+                  className={cn(
+                    "text-[#f0f0e8] font-black text-lg uppercase tracking-tight leading-tight",
+                    inter.className,
+                  )}>
+                  Let&apos;s talk about your project.
+                </p>
+                <p className="text-[#f0f0e8]/50 text-sm font-medium leading-relaxed">
+                  Get a free consultation and tailored proposal within 24 hours.
+                </p>
+                <Link
+                  href="/#contact"
+                  className={cn(
+                    "flex items-center justify-center gap-2 w-full py-3 bg-new-accent text-new-dark text-xs font-black uppercase tracking-widest border-2 border-[#f0f0e8]/20 shadow-[3px_3px_0px_0px_rgba(240,240,232,0.15)] hover:-translate-y-0.5 hover:translate-x-0.5 hover:shadow-[1px_1px_0px_0px_rgba(240,240,232,0.15)] transition-all duration-150",
+                    inter.className,
+                  )}>
+                  Get a Free Quote
+                  <ArrowUpRight size={13} />
+                </Link>
+              </div>
+            </div> */}
+
+            {/* Back to home */}
+            <Link
+              href="/#features"
+              className={cn(
+                "flex items-center justify-center gap-2 w-full py-3 bg-[#f0f0e8] text-new-dark text-xs font-black uppercase tracking-widest border-2 border-[#1a1a1a] shadow-[3px_3px_0px_0px_#1a1a1a] hover:-translate-y-0.5 hover:translate-x-0.5 hover:shadow-[1px_1px_0px_0px_#1a1a1a] transition-all duration-150",
+                inter.className,
+              )}>
+              <ArrowLeft size={13} />
+              Back to All Services
+            </Link>
+          </div>
+
           {/* ── LEFT COLUMN — Content ── */}
           <div className="lg:col-span-8 space-y-6">
             {/* Hero card */}
@@ -389,55 +439,6 @@ export default function FeatureDetailLayout({
                 <div />
               )}
             </div>
-          </div>
-
-          {/* ── RIGHT COLUMN — Sidebar ── */}
-          <div className="lg:col-span-4 space-y-5">
-            {/* All services nav */}
-            <SidebarNav features={allFeatures} activeSlug={feature.slug} />
-
-            {/* CTA card */}
-            {/* <div className="bg-[#1a1a1a] border-2 border-[#1a1a1a] shadow-[4px_4px_0px_0px_#1a1a1a] overflow-hidden">
-              <div className="p-6 space-y-4">
-                <p
-                  className={cn(
-                    "text-[10px] uppercase tracking-[0.3em] text-new-accent font-bold",
-                    inter.className,
-                  )}>
-                  Interested?
-                </p>
-                <p
-                  className={cn(
-                    "text-[#f0f0e8] font-black text-lg uppercase tracking-tight leading-tight",
-                    inter.className,
-                  )}>
-                  Let&apos;s talk about your project.
-                </p>
-                <p className="text-[#f0f0e8]/50 text-sm font-medium leading-relaxed">
-                  Get a free consultation and tailored proposal within 24 hours.
-                </p>
-                <Link
-                  href="/#contact"
-                  className={cn(
-                    "flex items-center justify-center gap-2 w-full py-3 bg-new-accent text-new-dark text-xs font-black uppercase tracking-widest border-2 border-[#f0f0e8]/20 shadow-[3px_3px_0px_0px_rgba(240,240,232,0.15)] hover:-translate-y-0.5 hover:translate-x-0.5 hover:shadow-[1px_1px_0px_0px_rgba(240,240,232,0.15)] transition-all duration-150",
-                    inter.className,
-                  )}>
-                  Get a Free Quote
-                  <ArrowUpRight size={13} />
-                </Link>
-              </div>
-            </div> */}
-
-            {/* Back to home */}
-            <Link
-              href="/#features"
-              className={cn(
-                "flex items-center justify-center gap-2 w-full py-3 bg-[#f0f0e8] text-new-dark text-xs font-black uppercase tracking-widest border-2 border-[#1a1a1a] shadow-[3px_3px_0px_0px_#1a1a1a] hover:-translate-y-0.5 hover:translate-x-0.5 hover:shadow-[1px_1px_0px_0px_#1a1a1a] transition-all duration-150",
-                inter.className,
-              )}>
-              <ArrowLeft size={13} />
-              Back to All Services
-            </Link>
           </div>
         </div>
       </div>

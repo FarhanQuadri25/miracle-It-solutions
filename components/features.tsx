@@ -6,10 +6,11 @@ import Link from "next/link";
 import { FeatureDetail, FEATURES } from "@/lib/feature-data";
 
 const TAG_STYLES: Record<string, string> = {
-  Enterprise: "bg-blue-200 text-blue-700 border border-blue-100",
-  Design: "bg-violet-200 text-violet-700 border border-violet-100",
-  Engineering: "bg-emerald-200 text-emerald-700 border border-emerald-100",
-  Growth: "bg-amber-200 text-amber-700 border border-amber-100",
+  Enterprise: "bg-indigo-100 text-indigo-800 border border-indigo-400",
+  Design: "bg-fuchsia-100 text-fuchsia-800 border border-fuchsia-400",
+  Engineering: "bg-teal-100 text-teal-800 border border-teal-400",
+  Growth: "bg-orange-100 text-orange-800 border border-orange-400",
+  Productivity: "bg-lime-100 text-lime-800 border border-lime-400",
 };
 
 function FeatureCard({
