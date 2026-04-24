@@ -310,16 +310,8 @@ export const FEATURES: FeatureDetail[] = [
         body: "Attendance-integrated payroll with support for variable pay, bonuses, and deductions.",
       },
       {
-        title: "Statutory Compliance",
-        body: "Automated PF, ESI, TDS calculations with filing-ready summaries.",
-      },
-      {
         title: "Payslip Generation",
         body: "Professional, branded payslips delivered digitally to every employee.",
-      },
-      {
-        title: "Year-End Filings",
-        body: "Form 16, annual returns, and tax summaries generated without manual data entry.",
       },
     ],
     photos: [],
