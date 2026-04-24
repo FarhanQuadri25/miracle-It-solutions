@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useCallback } from "react";
+import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { inter } from "@/lib/fonts";
@@ -119,14 +120,21 @@ function PhotoSlider({ photos, name }: { photos: string[]; name: string }) {
 function SidebarNav({
   features,
   activeSlug,
+  onSelect,
+  className,
 }: {
   features: FeatureDetail[];
   activeSlug: string;
+  onSelect?: () => void;
+  className?: string;
 }) {
   return (
-    <div className="border-2 border-[#1a1a1a] shadow-[4px_4px_0px_0px_#1a1a1a] overflow-hidden">
-      {/* Nav header */}
-      <div className="bg-[#1a1a1a] px-5 py-4">
+    <div
+      className={cn(
+        "border-2 border-[#1a1a1a] shadow-[4px_4px_0px_0px_#1a1a1a] overflow-hidden",
+        className,
+      )}>
+      <div className="bg-[#1a1a1a] px-5 py-4 hidden sm:flex">
         <p
           className={cn(
             "text-[10px] uppercase tracking-[0.3em] text-[#f0f0e8]/40 font-bold",
@@ -135,22 +143,19 @@ function SidebarNav({
           All Services
         </p>
       </div>
-
-      {/* Nav items */}
       <div className="divide-y-2 divide-[#1a1a1a]/10">
         {features.map((f, i) => {
           const Icon = f.icon;
           const isActive = f.slug === activeSlug;
-
           return (
             <Link
               key={f.slug}
               href={`/features/${f.slug}`}
+              onClick={onSelect}
               className={cn(
                 "flex items-center gap-3 px-5 py-4 transition-all duration-150 group",
                 isActive ? "bg-[#1a1a1a]" : "bg-[#f0f0e8] hover:bg-white",
               )}>
-              {/* Index */}
               <span
                 className={cn(
                   "text-[10px] font-black tabular-nums shrink-0 w-5",
@@ -158,8 +163,6 @@ function SidebarNav({
                 )}>
                 {String(i + 1).padStart(2, "0")}
               </span>
-
-              {/* Icon */}
               <div
                 className={cn(
                   "w-7 h-7 flex items-center justify-center shrink-0 border-2 transition-colors duration-150",
@@ -167,25 +170,16 @@ function SidebarNav({
                     ? "bg-new-accent border-new-accent"
                     : "bg-white border-[#1a1a1a]/20 group-hover:border-[#1a1a1a]",
                 )}>
-                <Icon
-                  size={13}
-                  className={isActive ? "text-new-dark" : "text-new-dark"}
-                />
+                <Icon size={13} className="text-new-dark" />
               </div>
-
-              {/* Label */}
               <span
                 className={cn(
                   "text-xs font-black uppercase tracking-tight leading-tight flex-1",
                   inter.className,
-                  isActive
-                    ? "text-[#f0f0e8]"
-                    : "text-new-dark group-hover:text-new-dark",
+                  isActive ? "text-[#f0f0e8]" : "text-new-dark",
                 )}>
                 {f.name}
               </span>
-
-              {/* Active indicator */}
               {isActive && (
                 <div className="w-1.5 h-1.5 bg-new-accent shrink-0" />
               )}
@@ -208,6 +202,7 @@ export default function FeatureDetailLayout({
   allFeatures,
 }: FeatureDetailLayoutProps) {
   const Icon = feature.icon;
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const currentIndex = allFeatures.findIndex((f) => f.slug === feature.slug);
   const prevFeature = currentIndex > 0 ? allFeatures[currentIndex - 1] : null;
@@ -227,9 +222,84 @@ export default function FeatureDetailLayout({
         }}
       />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 py-10 sm:py-16">
-        {/* Breadcrumb */}
-        <div className="flex items-center gap-2 mb-8">
+      {/* ── MOBILE SERVICES DRAWER ── */}
+      <div
+        onClick={() => setSidebarOpen(false)}
+        className={cn(
+          "fixed inset-0 bg-black/50 z-40 transition-opacity duration-300 lg:hidden",
+          sidebarOpen
+            ? "opacity-100 pointer-events-auto"
+            : "opacity-0 pointer-events-none",
+        )}
+      />
+      <div
+        className={cn(
+          "fixed top-0 left-0 h-full w-[85vw] max-w-[340px] bg-[#f0f0e8] z-50 border-r-2 border-[#1a1a1a] transition-transform duration-300 ease-in-out lg:hidden flex flex-col",
+          sidebarOpen ? "translate-x-0" : "-translate-x-full",
+        )}>
+        <div className="bg-[#1a1a1a] px-5 py-4 flex items-center justify-between shrink-0">
+          <p
+            className={cn(
+              "text-[10px] uppercase tracking-[0.3em] text-[#f0f0e8]/40 font-bold",
+              inter.className,
+            )}>
+            All Services
+          </p>
+          <button
+            onClick={() => setSidebarOpen(false)}
+            className="w-8 h-8 border-2 border-[#f0f0e8]/20 flex items-center justify-center hover:border-new-accent transition-colors">
+            <X size={14} className="text-[#f0f0e8]" />
+          </button>
+        </div>
+        <div className="flex-1 overflow-y-auto">
+          <SidebarNav
+            features={allFeatures}
+            activeSlug={feature.slug}
+            onSelect={() => setSidebarOpen(false)}
+          />
+        </div>
+        <div className="p-4 border-t-2 border-[#1a1a1a] shrink-0">
+          <Link
+            href="/#features"
+            onClick={() => setSidebarOpen(false)}
+            className={cn(
+              "flex items-center justify-center gap-2 w-full py-3 bg-[#f0f0e8] text-new-dark text-xs font-black uppercase tracking-widest border-2 border-[#1a1a1a] shadow-[2px_2px_0px_0px_#1a1a1a]",
+              inter.className,
+            )}>
+            <ArrowLeft size={13} />
+            Back to Services
+          </Link>
+        </div>
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10 lg:py-16">
+        {/* ── MOBILE TOP BAR ── */}
+        <div className="flex items-center justify-between mb-5 lg:hidden">
+          <button
+            onClick={() => setSidebarOpen(true)}
+            className="flex items-center gap-2 px-4 py-2.5 bg-[#1a1a1a] border-2 border-[#1a1a1a] shadow-[2px_2px_0px_0px_#1a1a1a]">
+            <Menu size={14} className="text-[#f0f0e8]" />
+            <span
+              className={cn(
+                "text-[10px] uppercase tracking-widest font-black text-[#f0f0e8]",
+                inter.className,
+              )}>
+              All Services
+            </span>
+          </button>
+          <Link
+            href="/#features"
+            className={cn(
+              "flex items-center gap-1.5 px-4 py-2.5 bg-[#f0f0e8] border-2 border-[#1a1a1a] shadow-[2px_2px_0px_0px_#1a1a1a] text-[10px] font-black uppercase tracking-widest text-new-dark",
+              inter.className,
+            )}>
+            <ArrowLeft size={12} />
+            Back
+          </Link>
+        </div>
+
+        {/* ── BREADCRUMB — desktop only ── */}
+        <div className="hidden lg:flex items-center gap-2 mb-8">
           <Link
             href="/"
             className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-widest text-new-neutral hover:text-new-dark transition-colors">
@@ -248,68 +318,19 @@ export default function FeatureDetailLayout({
           </span>
         </div>
 
-        {/* Two-column layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
-          {/* ── RIGHT COLUMN — Sidebar ── */}
-          <div className="lg:col-span-4 space-y-5">
-            {/* All services nav */}
-            <SidebarNav features={allFeatures} activeSlug={feature.slug} />
-
-            {/* CTA card */}
-            {/* <div className="bg-[#1a1a1a] border-2 border-[#1a1a1a] shadow-[4px_4px_0px_0px_#1a1a1a] overflow-hidden">
-              <div className="p-6 space-y-4">
-                <p
-                  className={cn(
-                    "text-[10px] uppercase tracking-[0.3em] text-new-accent font-bold",
-                    inter.className,
-                  )}>
-                  Interested?
-                </p>
-                <p
-                  className={cn(
-                    "text-[#f0f0e8] font-black text-lg uppercase tracking-tight leading-tight",
-                    inter.className,
-                  )}>
-                  Let&apos;s talk about your project.
-                </p>
-                <p className="text-[#f0f0e8]/50 text-sm font-medium leading-relaxed">
-                  Get a free consultation and tailored proposal within 24 hours.
-                </p>
-                <Link
-                  href="/#contact"
-                  className={cn(
-                    "flex items-center justify-center gap-2 w-full py-3 bg-new-accent text-new-dark text-xs font-black uppercase tracking-widest border-2 border-[#f0f0e8]/20 shadow-[3px_3px_0px_0px_rgba(240,240,232,0.15)] hover:-translate-y-0.5 hover:translate-x-0.5 hover:shadow-[1px_1px_0px_0px_rgba(240,240,232,0.15)] transition-all duration-150",
-                    inter.className,
-                  )}>
-                  Get a Free Quote
-                  <ArrowUpRight size={13} />
-                </Link>
-              </div>
-            </div> */}
-
-            {/* Back to home */}
-            <Link
-              href="/#features"
-              className={cn(
-                "flex items-center justify-center gap-2 w-full py-3 bg-[#f0f0e8] text-new-dark text-xs font-black uppercase tracking-widest border-2 border-[#1a1a1a] shadow-[3px_3px_0px_0px_#1a1a1a] hover:-translate-y-0.5 hover:translate-x-0.5 hover:shadow-[1px_1px_0px_0px_#1a1a1a] transition-all duration-150",
-                inter.className,
-              )}>
-              <ArrowLeft size={13} />
-              Back to All Services
-            </Link>
-          </div>
-
-          {/* ── LEFT COLUMN — Content ── */}
-          <div className="lg:col-span-8 space-y-6">
+        {/* ── TWO COLUMN LAYOUT ── */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-8">
+          {/* ── LEFT COLUMN — Content (full width on mobile, 8 cols on desktop) ── */}
+          <div className="lg:col-span-8 space-y-5">
             {/* Hero card */}
-            <div className="bg-white border-2 border-[#1a1a1a] shadow-[6px_6px_0px_0px_#1a1a1a] overflow-hidden">
+            <div className="bg-white border-2 border-[#1a1a1a] shadow-[4px_4px_0px_0px_#1a1a1a] sm:shadow-[6px_6px_0px_0px_#1a1a1a] overflow-hidden">
               {/* Card header bar */}
-              <div className="bg-[#1a1a1a] px-6 py-5 flex items-center justify-between">
-                <div className="flex items-center gap-4">
-                  <div className="w-11 h-11 bg-new-accent flex items-center justify-center shrink-0">
-                    <Icon size={22} className="text-new-dark" />
+              <div className="bg-[#1a1a1a] px-4 sm:px-6 py-4 sm:py-5 flex items-center justify-between gap-3">
+                <div className="flex items-center gap-3 min-w-0">
+                  <div className="w-9 h-9 sm:w-11 sm:h-11 bg-new-accent flex items-center justify-center shrink-0">
+                    <Icon size={18} className="text-new-dark" />
                   </div>
-                  <div>
+                  <div className="min-w-0">
                     <p
                       className={cn(
                         "text-[9px] uppercase tracking-[0.3em] text-[#f0f0e8]/40 font-bold mb-0.5",
@@ -319,7 +340,7 @@ export default function FeatureDetailLayout({
                     </p>
                     <h1
                       className={cn(
-                        "text-[#f0f0e8] font-black text-lg uppercase tracking-tight leading-tight",
+                        "text-[#f0f0e8] font-black text-sm sm:text-lg uppercase tracking-tight leading-tight truncate",
                         inter.className,
                       )}>
                       {feature.name}
@@ -328,7 +349,7 @@ export default function FeatureDetailLayout({
                 </div>
                 <span
                   className={cn(
-                    "text-[10px] font-bold uppercase tracking-widest px-3 py-1.5",
+                    "text-[9px] sm:text-[10px] font-bold uppercase tracking-widest px-2 sm:px-3 py-1 sm:py-1.5 shrink-0",
                     TAG_STYLES[feature.tag],
                   )}>
                   {feature.tag}
@@ -336,23 +357,23 @@ export default function FeatureDetailLayout({
               </div>
 
               {/* Body */}
-              <div className="p-6 sm:p-8 space-y-6">
+              <div className="p-4 sm:p-6 lg:p-8 space-y-5 sm:space-y-6">
                 {/* Tagline */}
                 <p
                   className={cn(
-                    "text-2xl sm:text-3xl font-black text-new-dark uppercase tracking-tight leading-tight border-b-2 border-[#1a1a1a] pb-5",
+                    "text-xl sm:text-2xl lg:text-3xl font-black text-new-dark uppercase tracking-tight leading-tight border-b-2 border-[#1a1a1a] pb-4 sm:pb-5",
                     inter.className,
                   )}>
                   {feature.tagline}
                 </p>
 
                 {/* Long description */}
-                <p className="text-new-neutral text-base leading-relaxed font-medium">
+                <p className="text-new-neutral text-sm sm:text-base leading-relaxed font-medium">
                   {feature.longDescription}
                 </p>
 
                 {/* Highlights grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
                   {feature.highlights.map((h, i) => (
                     <div
                       key={i}
@@ -383,26 +404,26 @@ export default function FeatureDetailLayout({
             <PhotoSlider photos={feature.photos} name={feature.name} />
 
             {/* Prev / Next navigation */}
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-3 sm:gap-4">
               {prevFeature ? (
                 <Link
                   href={`/features/${prevFeature.slug}`}
-                  className="flex items-center gap-3 p-4 bg-white border-2 border-[#1a1a1a] shadow-[3px_3px_0px_0px_#1a1a1a] hover:-translate-y-0.5 hover:translate-x-0.5 hover:shadow-[1px_1px_0px_0px_#1a1a1a] transition-all duration-150 group">
+                  className="flex items-center gap-2 sm:gap-3 p-3 sm:p-4 bg-white border-2 border-[#1a1a1a] shadow-[2px_2px_0px_0px_#1a1a1a] sm:shadow-[3px_3px_0px_0px_#1a1a1a] hover:-translate-y-0.5 hover:translate-x-0.5 hover:shadow-[1px_1px_0px_0px_#1a1a1a] transition-all duration-150 group">
                   <ArrowLeft
-                    size={14}
+                    size={13}
                     className="text-new-neutral group-hover:text-new-dark transition-colors shrink-0"
                   />
                   <div className="min-w-0">
                     <p
                       className={cn(
-                        "text-[9px] uppercase tracking-[0.25em] text-new-neutral font-bold mb-0.5",
+                        "text-[9px] uppercase tracking-[0.2em] text-new-neutral font-bold mb-0.5",
                         inter.className,
                       )}>
-                      Previous
+                      Prev
                     </p>
                     <p
                       className={cn(
-                        "text-xs font-black text-new-dark uppercase tracking-tight truncate",
+                        "text-[10px] sm:text-xs font-black text-new-dark uppercase tracking-tight truncate",
                         inter.className,
                       )}>
                       {prevFeature.name}
@@ -416,25 +437,25 @@ export default function FeatureDetailLayout({
               {nextFeature ? (
                 <Link
                   href={`/features/${nextFeature.slug}`}
-                  className="flex items-center justify-end gap-3 p-4 bg-white border-2 border-[#1a1a1a] shadow-[3px_3px_0px_0px_#1a1a1a] hover:-translate-y-0.5 hover:-translate-x-0.5 hover:shadow-[1px_1px_0px_0px_#1a1a1a] transition-all duration-150 group text-right">
+                  className="flex items-center justify-end gap-2 sm:gap-3 p-3 sm:p-4 bg-white border-2 border-[#1a1a1a] shadow-[2px_2px_0px_0px_#1a1a1a] sm:shadow-[3px_3px_0px_0px_#1a1a1a] hover:-translate-y-0.5 hover:-translate-x-0.5 hover:shadow-[1px_1px_0px_0px_#1a1a1a] transition-all duration-150 group text-right">
                   <div className="min-w-0">
                     <p
                       className={cn(
-                        "text-[9px] uppercase tracking-[0.25em] text-new-neutral font-bold mb-0.5",
+                        "text-[9px] uppercase tracking-[0.2em] text-new-neutral font-bold mb-0.5",
                         inter.className,
                       )}>
                       Next
                     </p>
                     <p
                       className={cn(
-                        "text-xs font-black text-new-dark uppercase tracking-tight truncate",
+                        "text-[10px] sm:text-xs font-black text-new-dark uppercase tracking-tight truncate",
                         inter.className,
                       )}>
                       {nextFeature.name}
                     </p>
                   </div>
                   <ChevronRight
-                    size={14}
+                    size={13}
                     className="text-new-neutral group-hover:text-new-dark transition-colors shrink-0"
                   />
                 </Link>
@@ -442,6 +463,20 @@ export default function FeatureDetailLayout({
                 <div />
               )}
             </div>
+          </div>
+
+          {/* ── RIGHT COLUMN — Sidebar (desktop only) ── */}
+          <div className="hidden lg:flex lg:col-span-4 flex-col gap-5">
+            <SidebarNav features={allFeatures} activeSlug={feature.slug} />
+            <Link
+              href="/#features"
+              className={cn(
+                "flex items-center justify-center gap-2 w-full py-3 bg-[#f0f0e8] text-new-dark text-xs font-black uppercase tracking-widest border-2 border-[#1a1a1a] shadow-[3px_3px_0px_0px_#1a1a1a] hover:-translate-y-0.5 hover:translate-x-0.5 hover:shadow-[1px_1px_0px_0px_#1a1a1a] transition-all duration-150",
+                inter.className,
+              )}>
+              <ArrowLeft size={13} />
+              Back to All Services
+            </Link>
           </div>
         </div>
       </div>

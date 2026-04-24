@@ -25,7 +25,7 @@
 
 "use client";
 
-import Navbar from "@/components/navbar";
+// import Navbar from "@/components/navbar";
 import Hero from "@/components/hero";
 // import About from "@/components/about";
 import FeaturesSection from "@/components/features";
@@ -38,7 +38,7 @@ export default function Home() {
 
   return (
     <main className="min-h-screen">
-      <Navbar />
+      {/* <Navbar /> */}
       <Hero />
       <FeaturesSection />
       {/* <About /> */}

@@ -4,6 +4,7 @@ import "./globals.css";
 import { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 import ReactQueryProvider from "./query-provider";
+import Navbar from "@/components/navbar";
 
 const geistmono = Geist_Mono({
   subsets: ["latin"],
@@ -44,7 +45,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           montserrat.variable,
           geistmono.className,
         )}>
-        <ReactQueryProvider>{children}</ReactQueryProvider>
+        <ReactQueryProvider>
+          <Navbar />
+          {children}
+        </ReactQueryProvider>
       </body>
     </html>
   );
