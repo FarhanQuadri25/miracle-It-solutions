@@ -69,20 +69,8 @@ export const FEATURES: FeatureDetail[] = [
     icon: Pill,
     highlights: [
       {
-        title: "Prescription Management",
-        body: "Digital prescription intake, validation, and dispensing records with full patient history.",
-      },
-      {
-        title: "Drug Inventory",
-        body: "Real-time stock levels, expiry date alerts, and automated reorder triggers.",
-      },
-      {
         title: "Billing & Invoicing",
-        body: "Fast POS-style billing with insurance claim support and receipt generation.",
-      },
-      {
-        title: "Compliance & Audit",
-        body: "Full dispensing logs and regulatory reports ready for inspection at any time.",
+        body: "Fast POS-style billing and receipt generation.",
       },
     ],
     photos: [],
@@ -249,10 +237,6 @@ export const FEATURES: FeatureDetail[] = [
       "Inventory mistakes cost money. Our platform gives you granular, real-time visibility into every SKU across every warehouse or location. Automated reorder points prevent stockouts, while overstock alerts keep your working capital healthy. The system integrates with your existing procurement and sales workflows, so inventory data is always accurate — not a snapshot from last week.",
     icon: Package,
     highlights: [
-      {
-        title: "Real-Time Stock Tracking",
-        body: "Live inventory levels across multiple warehouses and locations.",
-      },
       {
         title: "Automated Reordering",
         body: "Set reorder thresholds and let the system raise purchase orders automatically.",
