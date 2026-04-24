@@ -23,21 +23,18 @@
 //   );
 // }
 
-"use client";
-
 // import Navbar from "@/components/navbar";
 import Hero from "@/components/hero";
 // import About from "@/components/about";
 import FeaturesSection from "@/components/features";
 import ContactForm from "@/components/contact";
 import Footer from "@/components/footer";
-import { useVisitorCount } from "@/hooks/useVisitor";
+import VisitorTracker from "@/components/vistior-tracker";
 
 export default function Home() {
-  useVisitorCount(); // 👈 just call it
-
   return (
     <main className="min-h-screen">
+      <VisitorTracker />
       {/* <Navbar /> */}
       <Hero />
       <FeaturesSection />
