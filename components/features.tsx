@@ -1,175 +1,119 @@
-import { inter } from "@/lib/fonts"
-import { cn } from "@/lib/utils"
-import {
-    School,
-    Layout,
-    Code,
-    Globe,
-    Brush,
-    Settings,
-    ArrowUpRight,
-    LucideIcon
-} from "lucide-react"
+import { inter } from "@/lib/fonts";
+import { cn } from "@/lib/utils";
+import { ArrowUpRight } from "lucide-react";
+import SectionHeader from "./section-header";
+import Link from "next/link";
+import { FeatureDetail, FEATURES } from "@/lib/feature-data";
 
-interface Feature {
-    name: string
-    description: string
-    icon: LucideIcon
-}
+const TAG_STYLES: Record<string, string> = {
+  Enterprise: "bg-blue-200 text-blue-700 border border-blue-100",
+  Design: "bg-violet-200 text-violet-700 border border-violet-100",
+  Engineering: "bg-emerald-200 text-emerald-700 border border-emerald-100",
+  Growth: "bg-amber-200 text-amber-700 border border-amber-100",
+};
 
-const NEW_FEATURES: Feature[] = [
-    {
-        name: "School Management Software",
-        description:
-            "Streamline attendance, grading, and administration with our efficient school software solutions.",
-        icon: School,
-    },
-    {
-        name: "Landing Page Development",
-        description:
-            "We create high-converting, responsive landing pages tailored to your business needs.",
-        icon: Layout,
-    },
-    {
-        name: "Full-Stack Development",
-        description:
-            "End-to-end development for web applications, from frontend to backend and databases.",
-        icon: Code,
-    },
-    {
-        name: "SEO & Performance Optimization",
-        description:
-            "We optimize your websites for speed, SEO, and scalability for better search engine rankings.",
-        icon: Globe,
-    },
-    {
-        name: "UI/UX Design",
-        description:
-            "Create visually appealing, user-friendly interfaces with a focus on experience and accessibility.",
-        icon: Brush,
-    },
-    {
-        name: "Custom Web Applications",
-        description:
-            "Develop tailored web applications to meet unique business requirements with modern technologies.",
-        icon: Settings,
-    },
-]
+function FeatureCard({
+  feature,
+  index,
+}: {
+  feature: FeatureDetail;
+  index: number;
+}) {
+  const Icon = feature.icon;
 
-// Individual Feature Card Component
-function FeatureCard({ feature }: { feature: Feature }) {
-    const Icon = feature.icon
-
-    return (
-        <div
+  return (
+    <Link href={`/features/${feature.slug}`}>
+      <div
+        className={cn(
+          "group relative flex flex-col bg-[#f0f0e8] border-2 border-[#1a1a1a]",
+          "shadow-[6px_6px_0px_0px_#1a1a1a]",
+          "hover:-translate-y-1 hover:translate-x-1 hover:shadow-[2px_2px_0px_0px_#1a1a1a]",
+          "transition-all duration-200 ease-out",
+          inter.className,
+        )}>
+        {/* Dark header bar */}
+        <div className="border-b-2 border-[#1a1a1a] bg-[#1a1a1a] text-[#f0f0e8] px-6 py-4 flex justify-between items-center">
+          <div className="w-10 h-10 bg-new-accent flex items-center justify-center shrink-0">
+            <Icon size={20} className="text-new-dark" />
+          </div>
+          <span
             className={cn(
-                "group relative bg-[#fafafa] rounded-2xl p-6 border border-[#e5e5e5] hover:border-new-dark transition-all duration-300",
-                "hover:shadow-xl hover:shadow-new-dark/5 hover:-translate-y-1",
-                "overflow-hidden",
-                inter.className
-            )}
-        >
-            {/* Background Gradient on Hover */}
-            <div className="absolute inset-0 bg-linear-to-br from-new-accent/0 via-transparent to-new-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-            {/* Corner Accent */}
-            <div className="absolute top-0 right-0 w-16 h-16 overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-new-light-color rounded-full -translate-x-16 -translate-y-16 group-hover:bg-new-accent transition-colors duration-300" />
-            </div>
-
-            {/* Content */}
-            <div className="relative z-10">
-                {/* Icon Container */}
-                <div className="mb-4 relative">
-                    <div className="w-12 h-12 bg-new-dark rounded-xl flex items-center justify-center group-hover:bg-new-accent transition-colors duration-300">
-                        <Icon
-                            size={24}
-                            className="text-white group-hover:text-new-dark transition-colors duration-300"
-                        />
-                    </div>
-                </div>
-
-                {/* Text Content */}
-                <h3 className="text-new-dark font-bold text-lg mb-2 group-hover:text-new-dark transition-colors">
-                    {feature.name}
-                </h3>
-                <p className="text-new-neutral text-sm leading-relaxed mb-4">
-                    {feature.description}
-                </p>
-
-            </div>
-
-            {/* Bottom Line Accent */}
-            <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-new-accent group-hover:w-full transition-all duration-500" />
+              "text-[10px] font-semibold uppercase tracking-widest px-2.5 py-1",
+              TAG_STYLES[feature.tag],
+            )}>
+            {feature.tag}
+          </span>
         </div>
-    )
+
+        {/* Body */}
+        <div className="p-6 flex flex-col flex-1">
+          {/* Index watermark */}
+          <span className="text-6xl font-black leading-none text-[#1a1a1a]/8 select-none mb-3 tabular-nums">
+            {String(index + 1).padStart(2, "0")}
+          </span>
+
+          {/* Heading */}
+          <h3
+            className={cn(
+              "text-new-dark font-black text-lg uppercase tracking-tight leading-tight pb-4 mb-4 border-b-2 border-[#1a1a1a]",
+              inter.className,
+            )}>
+            {feature.name}
+          </h3>
+
+          {/* Description */}
+          <p
+            className={cn(
+              "text-new-neutral text-sm leading-relaxed flex-1",
+              inter.className,
+            )}>
+            {feature.description}
+          </p>
+
+          {/* Bottom CTA */}
+          <div className="mt-6 flex items-center justify-between">
+            <span
+              className={cn(
+                "text-xs font-semibold uppercase tracking-widest text-new-neutral/50 group-hover:text-new-dark transition-colors duration-200",
+                inter.className,
+              )}>
+              Learn more
+            </span>
+            <div className="w-7 h-7 border-2 border-[#1a1a1a] bg-[#f0f0e8] group-hover:bg-new-accent flex items-center justify-center transition-all duration-300">
+              <ArrowUpRight
+                size={13}
+                className="text-new-dark transition-colors duration-300"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </Link>
+  );
 }
 
-// Main Features Section Component
 export function FeaturesSection() {
-    return (
-        <section id="features" className="py-20 px-8 max-w-7xl mx-auto border-x-2">
-            {/* Section Header */}
-            <div className="text-center mb-16">
-                <span className="inline-block px-4 py-1.5 bg-new-accent text-new-dark text-xs font-bold rounded-full mb-4">
-                    OUR SERVICES
-                </span>
-                <h2 className={cn("text-4xl md:text-5xl font-bold text-new-dark tracking-tighter leading-tight mb-1", inter.className)}>
-                    What We Do
-                </h2>
-                <p className={cn("text-new-neutral text-lg max-w-3xl mx-auto font-medium tracking-tighter leading-tight", inter.className)}>
-                    Comprehensive digital solutions tailored to elevate your business and streamline operations
-                </p>
-            </div>
+  return (
+    <section
+      id="features"
+      className="px-5 py-2 sm:px-8 max-w-7xl mx-auto border-new-dark/10">
+      {/* Section header */}
+      <SectionHeader
+        tag="Our Services"
+        header="What We"
+        description="Comprehensive digital solutions designed to elevate your business and
+          deliver measurable results."
+        span="Build"
+      />
 
-            {/* Features Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {NEW_FEATURES.map((feature) => (
-                    <FeatureCard key={feature.name} feature={feature} />
-                ))}
-            </div>
-        </section>
-    )
+      {/* Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+        {FEATURES.map((feature, i) => (
+          <FeatureCard key={feature.name} feature={feature} index={i} />
+        ))}
+      </div>
+    </section>
+  );
 }
 
-// Alternative: Compact Card Version (FeatureCardCompact)
-export function FeatureCardCompact({ feature }: { feature: Feature; }) {
-    const Icon = feature.icon
-
-    return (
-        <div className="group flex items-start gap-4 p-4 rounded-xl hover:bg-white hover:shadow-lg transition-all duration-300 border border-transparent hover:border-[#e5e5e5]">
-            <div className="shrink-0 w-10 h-10 bg-new-light-color group-hover:bg-new-accent rounded-lg flex items-center justify-center transition-colors">
-                <Icon size={20} className="text-new-neutral group-hover:text-new-dark" />
-            </div>
-            <div>
-                <h4 className="font-semibold text-new-dark mb-1">{feature.name}</h4>
-                <p className="text-sm text-new-neutral line-clamp-2">{feature.description}</p>
-            </div>
-        </div>
-    )
-}
-
-// Alternative: Horizontal Card Version (FeatureCardHorizontal)
-export function FeatureCardHorizontal({ feature }: { feature: Feature }) {
-    const Icon = feature.icon
-
-    return (
-        <div className="group relative flex flex-col sm:flex-row gap-6 p-6 bg-white rounded-2xl border border-[#e5e5e5] hover:border-new-accent transition-all duration-300">
-            <div className="shrink-0 w-16 h-16 bg-new-dark rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
-                <Icon size={28} className="text-new-accent" />
-            </div>
-            <div className="flex-1">
-                <h3 className="text-xl font-bold text-new-dark mb-2">{feature.name}</h3>
-                <p className="text-new-neutral leading-relaxed">{feature.description}</p>
-            </div>
-            <div className="shrink-0 self-center">
-                <div className="w-10 h-10 rounded-full border border-[#e5e5e5] flex items-center justify-center group-hover:bg-new-accent group-hover:border-new-accent transition-all">
-                    <ArrowUpRight size={18} className="text-new-neutral group-hover:text-new-dark" />
-                </div>
-            </div>
-        </div>
-    )
-}
-
-// Default export for the main grid layout
-export default FeaturesSection
+export default FeaturesSection;

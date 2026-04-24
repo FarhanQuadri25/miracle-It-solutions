@@ -6,12 +6,12 @@ export const geistMono = Geist_Mono({
 });
 
 export const playfair = Playfair_Display({
-  subsets: ['latin'],
-  variable: '--font-playfair',
-  style: ['italic'],
+  subsets: ["latin"],
+  variable: "--font-playfair",
+  style: ["italic"],
 });
 
 export const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
+  subsets: ["latin"],
+  variable: "--font-inter",
 });

@@ -1,150 +1,124 @@
-import { inter } from "@/lib/fonts"
-import { cn } from "@/lib/utils"
-import {
-    Github,
-    Twitter,
-    Linkedin,
-    Instagram,
-    Zap
-} from "lucide-react"
+import { inter } from "@/lib/fonts";
+import { cn } from "@/lib/utils";
+import { ArrowRight, Home, Layers, MessageCircle } from "lucide-react";
+import Link from "next/link";
 
-const socialLinks = [
-    { name: "Twitter", icon: Twitter, href: "#" },
-    { name: "LinkedIn", icon: Linkedin, href: "#" },
-    { name: "GitHub", icon: Github, href: "#" },
-    { name: "Instagram", icon: Instagram, href: "#" },
-]
+const Footer = () => {
+  const currentYear = new Date().getFullYear();
 
-export function Footer() {
-    return (
-        <footer className={cn("bg-new-dark text-white tracking-tighter leading-tight", inter.className)}>
-            {/* Main Footer Content */}
-            <div className="max-w-7xl mx-auto px-8 py-16">
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-                    {/* Brand Column */}
-                    <div className="lg:col-span-4 space-y-6">
-                        {/* Logo */}
-                        <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 bg-new-accent rounded-xl flex items-center justify-center">
-                                <Zap size={20} className="text-new-dark" />
-                            </div>
-                            <span className="text-xl font-bold">Miracle It Solutions</span>
-                        </div>
+  const navLinks = [
+    { name: "Home", href: "#home", icon: Home },
+    { name: "Features", href: "#features", icon: Layers },
+    { name: "Contact", href: "#contact", icon: MessageCircle },
+  ];
 
+  return (
+    <footer
+      className={cn(
+        "w-full border-t-2 border-[#1a1a1a] bg-[#1a1a1a]",
+        inter.className,
+      )}
+    >
+      <div className="max-w-7xl mx-auto">
 
+        {/* Main footer body */}
+        <div className="grid grid-cols-1 md:grid-cols-3 divide-y-2 md:divide-y-0 md:divide-x-2 divide-white/10">
 
-                        {/* Contact Info */}
-                        {/* <div className="space-y-3">
-                            <a href="mailto:hello@Miracle IT Solutions.com" className="flex items-center gap-3 text-[#9a9a9a] hover:text-new-accent transition-colors group">
-                                <Mail size={18} />
-                                <span>hello@Miracle IT Solutions.com</span>
-                                <ArrowUpRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
-                            </a>
-                            <a href="tel:+1234567890" className="flex items-center gap-3 text-[#9a9a9a] hover:text-new-accent transition-colors group">
-                                <Phone size={18} />
-                                <span>+1 (234) 567-890</span>
-                                <ArrowUpRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
-                            </a>
-                            <div className="flex items-center gap-3 text-[#9a9a9a]">
-                                <MapPin size={18} />
-                                <span>San Francisco, CA</span>
-                            </div>
-                        </div> */}
-
-                        {/* Social Links */}
-                        {/* <div className="flex items-center gap-3 pt-2">
-                            {socialLinks.map((social) => (
-                                <a
-                                    key={social.name}
-                                    href={social.href}
-                                    className="w-10 h-10 bg-white/5 hover:bg-new-accent rounded-xl flex items-center justify-center transition-all duration-300 group"
-                                    aria-label={social.name}
-                                >
-                                    <social.icon size={18} className="text-[#9a9a9a] group-hover:text-new-dark transition-colors" />
-                                </a>
-                            ))}
-                        </div> */}
-                    </div>
-
-
-                </div>
-            </div>
-
-            {/* Newsletter Section
-      <div className="border-t border-white/10">
-        <div className="max-w-7xl mx-auto px-8 py-8">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div>
-              <h4 className="font-semibold text-white mb-1">Stay in the loop</h4>
-              <p className="text-[#9a9a9a] text-sm">Get the latest updates and news delivered to your inbox.</p>
-            </div>
-            <form className="flex gap-3 w-full md:w-auto">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder:text-[#9a9a9a] focus:outline-none focus:border-new-accent transition-colors w-full md:w-64"
-              />
-              <button className="px-6 py-3 bg-new-accent text-new-dark font-semibold rounded-xl hover:bg-[#e0ff33] transition-colors flex items-center gap-2 whitespace-nowrap">
-                Subscribe
-                <ArrowUpRight size={18} />
-              </button>
-            </form>
-          </div>
-        </div>
-      </div> */}
-
-            {/* Bottom Bar */}
-            {/* <div className="border-t border-white/10">
-        <div className="max-w-7xl mx-auto px-8 py-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-[#9a9a9a]">
-            <p>© {new Date().getFullYear()} Miracle IT Solutions. All rights reserved.</p>
-            <div className="flex items-center gap-6">
-              <a href="#" className="hover:text-new-accent transition-colors">Privacy</a>
-              <a href="#" className="hover:text-new-accent transition-colors">Terms</a>
-              <a href="#" className="hover:text-new-accent transition-colors">Cookies</a>
-              <a href="#" className="hover:text-new-accent transition-colors">Sitemap</a>
+          {/* Brand */}
+          <div className="px-8 py-10 space-y-5">
+            <Link href="/#home" className="flex items-center gap-2.5 group w-fit">
+              <div className="w-9 h-9 bg-new-accent border-2 border-[#f0f0e8]/20 flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(240,240,232,0.2)] group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:shadow-[1px_1px_0px_0px_rgba(240,240,232,0.2)] transition-all duration-200">
+                <span className={cn("text-new-dark text-xs font-black", inter.className)}>
+                  MI
+                </span>
+              </div>
+              <span className={cn("text-[#f0f0e8] font-black text-base uppercase tracking-tight", inter.className)}>
+                Miracle IT Solutions
+              </span>
+            </Link>
+            <p className="text-[#f0f0e8]/40 text-sm leading-relaxed max-w-xs font-medium">
+              Empowering businesses with innovative technology solutions built
+              to scale and engineered to last.
+            </p>
+            {/* Accent rule */}
+            <div className="flex items-center gap-2 pt-1">
+              <div className="w-8 h-[2px] bg-new-accent" />
+              <div className="w-2 h-[2px] bg-new-accent/40" />
+              <div className="w-1 h-[2px] bg-new-accent/20" />
             </div>
           </div>
+
+          {/* Quick Links */}
+          <div className="px-8 py-10 space-y-5">
+            <p className={cn("text-[10px] uppercase tracking-[0.3em] text-[#f0f0e8]/30 font-bold", inter.className)}>
+              Quick Links
+            </p>
+            <ul className="space-y-2">
+              {navLinks.map((link, i) => (
+                <li key={link.name}>
+                  <Link
+                    href={`/${link.href}`}
+                    className={cn(
+                      "group flex items-center justify-between px-4 py-3 border-2 border-white/5 hover:border-new-accent hover:bg-new-accent/5 transition-all duration-150",
+                      inter.className,
+                    )}
+                  >
+                    <div className="flex items-center gap-3">
+                      <span className="text-[10px] font-black text-[#f0f0e8]/20 tabular-nums">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <span className={cn("text-sm font-bold text-[#f0f0e8]/60 group-hover:text-[#f0f0e8] uppercase tracking-tight transition-colors", inter.className)}>
+                        {link.name}
+                      </span>
+                    </div>
+                    <link.icon className="w-3.5 h-3.5 text-[#f0f0e8]/20 group-hover:text-new-accent transition-colors" />
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* CTA */}
+          <div className="px-8 py-10 space-y-5">
+            <p className={cn("text-[10px] uppercase tracking-[0.3em] text-[#f0f0e8]/30 font-bold", inter.className)}>
+              Start a Project
+            </p>
+            <p className="text-[#f0f0e8]/40 text-sm leading-relaxed font-medium">
+              Ready to transform your business? Let&apos;s discuss your next
+              project and bring your vision to life.
+            </p>
+            <Link
+              href="/#contact"
+              className={cn(
+                "inline-flex items-center gap-2 px-5 py-3 bg-new-accent text-new-dark text-sm font-black uppercase tracking-widest border-2 border-[#f0f0e8]/20 shadow-[4px_4px_0px_0px_rgba(240,240,232,0.15)] hover:-translate-y-1 hover:translate-x-1 hover:shadow-[2px_2px_0px_0px_rgba(240,240,232,0.15)] transition-all duration-200",
+                inter.className,
+              )}
+            >
+              Contact Us
+              <ArrowRight size={14} />
+            </Link>
+          </div>
         </div>
-      </div> */}
-        </footer>
-    )
-}
 
+        {/* Bottom bar */}
+        <div className="border-t-2 border-white/10 px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <p className={cn("text-[11px] text-[#f0f0e8]/25 font-semibold uppercase tracking-widest", inter.className)}>
+            © {currentYear} Miracle IT Solutions. All rights reserved.
+          </p>
+          <div className="flex items-center gap-2">
+            <span className={cn("text-[11px] text-[#f0f0e8]/25 font-semibold uppercase tracking-widest", inter.className)}>
+              Built with
+            </span>
+            <div className="w-4 h-[2px] bg-new-accent" />
+            <span className={cn("text-[11px] text-new-accent font-black uppercase tracking-widest", inter.className)}>
+              Passion
+            </span>
+          </div>
+        </div>
 
+      </div>
+    </footer>
+  );
+};
 
-export default Footer
-
-// Alternative: Minimal Footer Version
-export function MinimalFooter() {
-    return (
-        <footer className="bg-new-light-color border-t border-[#e5e5e5]">
-            <div className="max-w-7xl mx-auto px-8 py-12">
-                <div className="flex flex-col items-center text-center gap-4">
-                    <div className="w-12 h-12 bg-new-dark rounded-xl flex items-center justify-center">
-                        <Zap size={24} className="text-new-accent" />
-                    </div>
-                    <p className="text-new-neutral max-w-md">
-                        Building the future of financial management.
-                        One transaction at a time.
-                    </p>
-                    <div className="flex items-center gap-6 mt-2">
-                        {socialLinks.map((social) => (
-                            <a
-                                key={social.name}
-                                href={social.href}
-                                className="w-10 h-10 bg-white border border-[#e5e5e5] rounded-full flex items-center justify-center hover:bg-new-dark hover:border-new-dark hover:text-white transition-all group"
-                            >
-                                <social.icon size={18} className="text-new-neutral group-hover:text-white" />
-                            </a>
-                        ))}
-                    </div>
-                    <p className="text-[#9a9a9a] text-sm mt-4">
-                        © {new Date().getFullYear()} Miracle IT Solutions. All rights reserved.
-                    </p>
-                </div>
-            </div>
-        </footer>
-    )
-}
-
+export default Footer;

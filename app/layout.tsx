@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Geist_Mono, Inter, Poppins, Montserrat } from "next/font/google";
 import "./globals.css";
+import { ReactNode } from "react";
+import { cn } from "@/lib/utils";
+import ReactQueryProvider from "./query-provider";
 
 const geistmono = Geist_Mono({
   subsets: ["latin"],
@@ -30,17 +33,18 @@ export const metadata: Metadata = {
   description: "Miracle IT Solutions",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body
-        className={`${poppins.variable} ${inter.variable} ${montserrat.variable} ${geistmono.className} antialiased bg-gray-50 text-zinc-800`}
-      >
-        {children}
+        className={cn(
+          "antialiased bg-[#f0f0e8] text-zinc-800",
+          poppins.variable,
+          inter.variable,
+          montserrat.variable,
+          geistmono.className,
+        )}>
+        <ReactQueryProvider>{children}</ReactQueryProvider>
       </body>
     </html>
   );
