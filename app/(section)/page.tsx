@@ -27,7 +27,7 @@
 
 import Navbar from "@/components/navbar";
 import Hero from "@/components/hero";
-import About from "@/components/about";
+// import About from "@/components/about";
 import FeaturesSection from "@/components/features";
 import ContactForm from "@/components/contact";
 import Footer from "@/components/footer";
@@ -41,7 +41,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <FeaturesSection />
-      <About />
+      {/* <About /> */}
       <ContactForm />
       <Footer />
     </main>
