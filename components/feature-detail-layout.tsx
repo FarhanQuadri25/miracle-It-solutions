@@ -13,6 +13,7 @@ import {
   ArrowLeft,
 } from "lucide-react";
 import type { FeatureDetail } from "@/lib/feature-data";
+import { AspectRatio } from "./ui/aspect-ratio";
 
 const TAG_STYLES: Record<string, string> = {
   Enterprise: "bg-indigo-100 text-indigo-800 border border-indigo-400",
@@ -65,50 +66,52 @@ function PhotoSlider({ photos, name }: { photos: string[]; name: string }) {
         </span>
       </div>
 
-      {/* Image area */}
-      <div className="relative aspect-video bg-[#f0f0e8]">
-        <Image
-          src={photos[current]}
-          alt={`${name} screenshot ${current + 1}`}
-          fill
-          className="object-cover"
-          priority={current === 0}
-        />
+      {/* Image area with AspectRatio - using your image dimensions 1600x838 */}
+      <AspectRatio ratio={1600 / 838} className="bg-[#f0f0e8]">
+        <div className="relative w-full h-full">
+          <Image
+            src={photos[current]}
+            alt={`${name} screenshot ${current + 1}`}
+            fill
+            className="object-contain"
+            priority={current === 0}
+          />
 
-        {photos.length > 1 && (
-          <>
-            <button
-              onClick={prev}
-              className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 bg-[#f0f0e8] border-2 border-[#1a1a1a] flex items-center justify-center shadow-[2px_2px_0px_0px_#1a1a1a] hover:-translate-y-[calc(50%+2px)] hover:translate-x-0.5 hover:shadow-[1px_1px_0px_0px_#1a1a1a] transition-all duration-150"
-              aria-label="Previous">
-              <ChevronLeft size={16} className="text-new-dark" />
-            </button>
+          {photos.length > 1 && (
+            <>
+              <button
+                onClick={prev}
+                className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 bg-[#f0f0e8] border-2 border-[#1a1a1a] flex items-center justify-center shadow-[2px_2px_0px_0px_#1a1a1a] hover:-translate-y-[calc(50%+2px)] hover:translate-x-0.5 hover:shadow-[1px_1px_0px_0px_#1a1a1a] transition-all duration-150 z-10"
+                aria-label="Previous">
+                <ChevronLeft size={16} className="text-new-dark" />
+              </button>
 
-            <button
-              onClick={next}
-              className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 bg-[#f0f0e8] border-2 border-[#1a1a1a] flex items-center justify-center shadow-[2px_2px_0px_0px_#1a1a1a] hover:-translate-y-[calc(50%+2px)] hover:-translate-x-0.5 hover:shadow-[1px_1px_0px_0px_#1a1a1a] transition-all duration-150"
-              aria-label="Next">
-              <ChevronRight size={16} className="text-new-dark" />
-            </button>
+              <button
+                onClick={next}
+                className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 bg-[#f0f0e8] border-2 border-[#1a1a1a] flex items-center justify-center shadow-[2px_2px_0px_0px_#1a1a1a] hover:-translate-y-[calc(50%+2px)] hover:-translate-x-0.5 hover:shadow-[1px_1px_0px_0px_#1a1a1a] transition-all duration-150 z-10"
+                aria-label="Next">
+                <ChevronRight size={16} className="text-new-dark" />
+              </button>
 
-            <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5">
-              {photos.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setCurrent(i)}
-                  className={cn(
-                    "w-2 h-2 border border-[#1a1a1a] transition-all duration-150",
-                    i === current
-                      ? "bg-new-accent"
-                      : "bg-[#f0f0e8]/70 hover:bg-[#f0f0e8]",
-                  )}
-                  aria-label={`Go to slide ${i + 1}`}
-                />
-              ))}
-            </div>
-          </>
-        )}
-      </div>
+              <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5 z-10">
+                {photos.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setCurrent(i)}
+                    className={cn(
+                      "w-2 h-2 border border-[#1a1a1a] transition-all duration-150",
+                      i === current
+                        ? "bg-new-accent"
+                        : "bg-[#f0f0e8]/70 hover:bg-[#f0f0e8]",
+                    )}
+                    aria-label={`Go to slide ${i + 1}`}
+                  />
+                ))}
+              </div>
+            </>
+          )}
+        </div>
+      </AspectRatio>
     </div>
   );
 }
