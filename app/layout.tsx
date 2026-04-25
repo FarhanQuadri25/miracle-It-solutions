@@ -33,11 +33,11 @@ const montserrat = Montserrat({
 
 export const metadata: Metadata = {
   title: "Miracle IT Solutions",
-  description: "Miracle IT Solutions",
+  description: "A Complete Solution to customize softwares",
   metadataBase: new URL(SITE_URL),
   openGraph: {
     title: "Miracle IT Solutions",
-    description: "Miracle IT Solutions",
+    description: "A Complete Solution to customize softwares",
     images: [
       {
         url: `${SITE_URL}/MIS-Banner.png`,
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     title: "Miracle IT Solutions",
-    description: "Miracle IT Solutions",
+    description: "A Complete Solution to customize softwares",
     images: [
       {
         url: `${SITE_URL}/MIS-Banner.png`,
