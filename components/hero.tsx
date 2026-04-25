@@ -18,23 +18,23 @@ const heroContent = {
 
 const Hero = () => {
   return (
-    <section id="home" className="relative min-h-screen overflow-hidden">
+    <section id="home" className="relative overflow-hidden">
       {/* Subtle grid background */}
-      <div
+      {/* <div
         className="pointer-events-none absolute inset-0 opacity-[0.03]"
         style={{
           backgroundImage: `linear-gradient(#1a1a1a 1px, transparent 1px), linear-gradient(90deg, #1a1a1a 1px, transparent 1px)`,
           backgroundSize: "64px 64px",
         }}
-      />
+      /> */}
 
-      <div className="relative mx-auto min-h-screen max-w-7xl px-5 sm:px-8">
+      <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
         <div className="relative z-10 flex min-h-screen flex-col items-center justify-center py-24 text-center sm:py-32">
           {/* Main heading */}
           <div className="mb-8">
             <h1
               className={cn(
-                "block text-[clamp(3.2rem,10vw,8rem)] italic leading-[0.88] tracking-tight text-new-dark",
+                "block text-[clamp(3.2rem,10vw,8rem)] italic leading-[0.90] tracking-tight text-new-dark",
                 playfair.className,
               )}
             >

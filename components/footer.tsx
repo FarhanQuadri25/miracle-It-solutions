@@ -1,6 +1,6 @@
 import { inter } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
-import { ArrowRight, Home, Layers, MessageCircle } from "lucide-react";
+import { ArrowRight, Home, MessageCircle } from "lucide-react";
 import Link from "next/link";
 
 const Footer = () => {
@@ -8,7 +8,7 @@ const Footer = () => {
 
   const navLinks = [
     { name: "Home", href: "#home", icon: Home },
-    { name: "Features", href: "#features", icon: Layers },
+    // { name: "Features", href: "#features", icon: Layers },
     { name: "Contact", href: "#contact", icon: MessageCircle },
   ];
 

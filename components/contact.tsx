@@ -40,7 +40,7 @@ const contactInfo = [
     icon: Mail,
     label: "Email Us",
     value: "contact@miracle-it-solutions.com",
-    sub: "We reply within 24 hours",
+    // sub: "We reply within 24 hours",
   },
 ];
 
@@ -134,9 +134,9 @@ export default function Contact() {
                   >
                     {item.value}
                   </p>
-                  <p className="mt-0.5 text-[11px] text-new-neutral">
+                  {/* <p className="mt-0.5 text-[11px] text-new-neutral">
                     {item.sub}
-                  </p>
+                  </p> */}
                 </div>
               </div>
             ))}
