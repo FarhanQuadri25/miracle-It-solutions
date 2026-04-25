@@ -6,6 +6,8 @@ import { cn } from "@/lib/utils";
 import ReactQueryProvider from "./query-provider";
 import Navbar from "@/components/navbar";
 
+const SITE_URL = "https://www.miracle-it-solutions.com";
+
 const geistmono = Geist_Mono({
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
@@ -32,6 +34,25 @@ const montserrat = Montserrat({
 export const metadata: Metadata = {
   title: "Miracle IT Solutions",
   description: "Miracle IT Solutions",
+  metadataBase: new URL(SITE_URL),
+  openGraph: {
+    title: "Miracle IT Solutions",
+    description: "Miracle IT Solutions",
+    images: [
+      {
+        url: `${SITE_URL}/MIS-Banner.png`,
+      },
+    ],
+  },
+  twitter: {
+    title: "Miracle IT Solutions",
+    description: "Miracle IT Solutions",
+    images: [
+      {
+        url: `${SITE_URL}/MIS-Banner.png`,
+      },
+    ],
+  },
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
