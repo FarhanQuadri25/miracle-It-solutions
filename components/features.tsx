@@ -26,48 +26,52 @@ function FeatureCard({
     <Link href={`/features/${feature.slug}`}>
       <div
         className={cn(
-          "group relative flex flex-col bg-[#f0f0e8] border-2 border-[#1a1a1a]",
+          "group relative flex flex-col border-2 border-[#1a1a1a] bg-[#f0f0e8]",
           "shadow-[6px_6px_0px_0px_#1a1a1a]",
           "hover:-translate-y-1 hover:translate-x-1 hover:shadow-[2px_2px_0px_0px_#1a1a1a]",
           "transition-all duration-200 ease-out",
           inter.className,
-        )}>
+        )}
+      >
         {/* Dark header bar */}
-        <div className="border-b-2 border-[#1a1a1a] bg-[#1a1a1a] text-[#f0f0e8] px-6 py-4 flex justify-between items-center">
-          <div className="w-10 h-10 bg-new-accent flex items-center justify-center shrink-0">
+        <div className="flex items-center justify-between border-b-2 border-[#1a1a1a] bg-[#1a1a1a] px-6 py-4 text-[#f0f0e8]">
+          <div className="flex h-10 w-10 shrink-0 items-center justify-center bg-new-accent">
             <Icon size={20} className="text-new-dark" />
           </div>
           <span
             className={cn(
-              "text-[10px] font-semibold uppercase tracking-widest px-2.5 py-1",
+              "px-2.5 py-1 text-[10px] font-semibold uppercase tracking-widest",
               TAG_STYLES[feature.tag],
-            )}>
+            )}
+          >
             {feature.tag}
           </span>
         </div>
 
         {/* Body */}
-        <div className="p-6 flex flex-col flex-1">
+        <div className="flex flex-1 flex-col p-6">
           {/* Index watermark */}
-          <span className="text-6xl font-black leading-none text-[#1a1a1a]/8 select-none mb-3 tabular-nums">
+          <span className="text-[#1a1a1a]/8 mb-3 select-none text-6xl font-black tabular-nums leading-none">
             {String(index + 1).padStart(2, "0")}
           </span>
 
           {/* Heading */}
           <h3
             className={cn(
-              "text-new-dark font-black text-lg uppercase tracking-tight leading-tight pb-4 mb-4 border-b-2 border-[#1a1a1a]",
+              "mb-4 border-b-2 border-[#1a1a1a] pb-4 text-lg font-black uppercase leading-tight tracking-tight text-new-dark",
               inter.className,
-            )}>
+            )}
+          >
             {feature.name}
           </h3>
 
           {/* Description */}
           <p
             className={cn(
-              "text-new-neutral text-sm leading-relaxed flex-1",
+              "flex-1 text-sm leading-relaxed text-new-neutral",
               inter.className,
-            )}>
+            )}
+          >
             {feature.description}
           </p>
 
@@ -75,12 +79,13 @@ function FeatureCard({
           <div className="mt-6 flex items-center justify-between">
             <span
               className={cn(
-                "text-xs font-semibold uppercase tracking-widest text-new-neutral/50 group-hover:text-new-dark transition-colors duration-200",
+                "text-xs font-semibold uppercase tracking-widest text-new-neutral/50 transition-colors duration-200 group-hover:text-new-dark",
                 inter.className,
-              )}>
+              )}
+            >
               Learn more
             </span>
-            <div className="w-7 h-7 border-2 border-[#1a1a1a] bg-[#f0f0e8] group-hover:bg-new-accent flex items-center justify-center transition-all duration-300">
+            <div className="flex h-7 w-7 items-center justify-center border-2 border-[#1a1a1a] bg-[#f0f0e8] transition-all duration-300 group-hover:bg-new-accent">
               <ArrowUpRight
                 size={13}
                 className="text-new-dark transition-colors duration-300"
@@ -97,7 +102,8 @@ export function FeaturesSection() {
   return (
     <section
       id="features"
-      className="px-5 py-2 sm:px-8 max-w-7xl mx-auto border-new-dark/10">
+      className="mx-auto max-w-7xl border-new-dark/10 px-5 py-2 sm:px-8"
+    >
       {/* Section header */}
       <SectionHeader
         tag="Our Services"
@@ -108,7 +114,7 @@ export function FeaturesSection() {
       />
 
       {/* Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
         {FEATURES.map((feature, i) => (
           <FeatureCard key={feature.name} feature={feature} index={i} />
         ))}

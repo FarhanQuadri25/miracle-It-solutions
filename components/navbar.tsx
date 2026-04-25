@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import { ArrowRight, Menu, X } from "lucide-react";
 import Link from "next/link";
 import { inter } from "@/lib/fonts";
+import CTAButton from "./resuable-button";
 
 const navLinks = [
   { label: "Home", href: "#home" },
@@ -64,14 +65,11 @@ const Navbar = () => {
 
         {/* Desktop CTA */}
         <div className="hidden md:flex items-center gap-4">
-          <Link
-            href="/#contact"
-            className={cn(
-              "bg-new-accent px-5 py-2.5 text-new-dark text-sm font-bold flex items-center gap-2 border-2 border-[#1a1a1a] shadow-[4px_5px_0px_0px_#1a1a1a] transition-all duration-200 ease-out hover:-translate-y-1 hover:translate-x-1 hover:shadow-[2px_2px_0px_0px_#1a1a1a] uppercase tracking-widest",
-              inter.className,
-            )}>
-            Contact Us
-            <ArrowRight size={15} />
+          <Link href="/#contact">
+            <CTAButton backgroundColor="bg-new-accent">
+              Contact Us
+              <ArrowRight size={15} />
+            </CTAButton>
           </Link>
         </div>
 

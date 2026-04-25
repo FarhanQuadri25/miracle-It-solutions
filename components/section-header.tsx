@@ -17,24 +17,25 @@ const SectionHeader = ({
   return (
     <div
       className={cn(
-        "flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-12 sm:mb-16",
+        "mb-12 flex flex-col gap-4 sm:mb-16 sm:flex-row sm:items-end sm:justify-between",
         inter.className,
-      )}>
+      )}
+    >
       <div className="flex flex-col gap-4">
         <div className="flex items-center gap-2">
-          <div className="w-6 h-px bg-new-dark/30" />
-          <span className="text-[10px] uppercase tracking-[0.35em] text-new-neutral font-semibold">
+          <div className="h-px w-6 bg-new-dark/30" />
+          <span className="text-[10px] font-semibold uppercase tracking-[0.35em] text-new-neutral">
             {tag}
           </span>
         </div>
-        <h2 className="text-3xl sm:text-5xl font-bold text-new-dark tracking-tighter leading-[1.05]">
+        <h2 className="text-3xl font-bold leading-[1.05] tracking-tighter text-new-dark sm:text-5xl">
           {header}{" "}
           <span className="bg-new-accent px-1.5 shadow-[8px_10px_0px_0px_#1a1a1a]">
             {span}
           </span>
         </h2>
       </div>
-      <p className="text-new-neutral text-sm sm:text-base max-w-xs sm:max-w-sm leading-relaxed sm:text-right">
+      <p className="max-w-xs text-sm leading-relaxed text-new-neutral sm:max-w-sm sm:text-right sm:text-base">
         {description}
       </p>
     </div>

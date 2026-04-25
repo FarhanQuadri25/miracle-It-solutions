@@ -85,9 +85,10 @@ export default function Contact() {
     <section
       id="contact"
       className={cn(
-        "max-w-7xl mx-auto px-5 sm:px-8 py-8  border-new-dark/10 relative overflow-hidden",
+        "relative mx-auto max-w-7xl overflow-hidden border-new-dark/10 px-5 py-8 sm:px-8",
         inter.className,
-      )}>
+      )}
+    >
       {/* Grid bg */}
       {/* <div
         className="absolute inset-0 opacity-[0.025] pointer-events-none"
@@ -105,32 +106,35 @@ export default function Contact() {
           description="Have a project in mind? Tell us about it and we'll get back to you within 24 hours."
         />
 
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-5 lg:gap-8">
           {/* Left — contact info + note */}
-          <div className="lg:col-span-2 flex flex-col gap-4">
+          <div className="flex flex-col gap-4 lg:col-span-2">
             {contactInfo.map((item, i) => (
               <div
                 key={i}
-                className="bg-[#f0f0e8] border-2 border-[#1a1a1a] shadow-[3px_3px_0px_0px_#1a1a1a] p-5 flex items-start gap-4 hover:-translate-y-0.5 hover:translate-x-0.5 hover:shadow-[1px_1px_0px_0px_#1a1a1a] transition-all duration-200">
-                <div className="w-10 h-10 bg-[#1a1a1a] flex items-center justify-center shrink-0">
+                className="flex items-start gap-4 border-2 border-[#1a1a1a] bg-[#f0f0e8] p-5 shadow-[3px_3px_0px_0px_#1a1a1a] transition-all duration-200 hover:-translate-y-0.5 hover:translate-x-0.5 hover:shadow-[1px_1px_0px_0px_#1a1a1a]"
+              >
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center bg-[#1a1a1a]">
                   <item.icon size={16} className="text-new-accent" />
                 </div>
                 <div>
                   <p
                     className={cn(
-                      "text-[10px] uppercase tracking-[0.3em] text-new-neutral font-bold mb-0.5",
+                      "mb-0.5 text-[10px] font-bold uppercase tracking-[0.3em] text-new-neutral",
                       inter.className,
-                    )}>
+                    )}
+                  >
                     {item.label}
                   </p>
                   <p
                     className={cn(
                       "text-sm font-black text-new-dark",
                       inter.className,
-                    )}>
+                    )}
+                  >
                     {item.value}
                   </p>
-                  <p className="text-[11px] text-new-neutral mt-0.5">
+                  <p className="mt-0.5 text-[11px] text-new-neutral">
                     {item.sub}
                   </p>
                 </div>
@@ -177,19 +181,20 @@ export default function Contact() {
           </div>
 
           {/* Right — form */}
-          <div className="lg:col-span-3 bg-white border-2 border-[#1a1a1a] shadow-[6px_6px_0px_0px_#1a1a1a]">
+          <div className="border-2 border-[#1a1a1a] bg-white shadow-[6px_6px_0px_0px_#1a1a1a] lg:col-span-3">
             {/* Form header bar */}
-            <div className="bg-[#1a1a1a] px-6 py-4 flex items-center justify-between">
+            <div className="flex items-center justify-between bg-[#1a1a1a] px-6 py-4">
               <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-[#ff5f57]" />
-                <div className="w-2 h-2 bg-[#febc2e]" />
-                <div className="w-2 h-2 bg-[#28c840]" />
+                <div className="h-2 w-2 bg-[#ff5f57]" />
+                <div className="h-2 w-2 bg-[#febc2e]" />
+                <div className="h-2 w-2 bg-[#28c840]" />
               </div>
               <span
                 className={cn(
-                  "text-[10px] uppercase tracking-[0.3em] text-[#f0f0e8]/50 font-bold",
+                  "text-[10px] font-bold uppercase tracking-[0.3em] text-[#f0f0e8]/50",
                   inter.className,
-                )}>
+                )}
+              >
                 Send Message
               </span>
             </div>
@@ -197,28 +202,30 @@ export default function Contact() {
             <div className="p-6 sm:p-8">
               {isSubmitSuccessful ? (
                 /* ── Success state ── */
-                <div className="flex flex-col items-center justify-center py-16 gap-5">
-                  <div className="w-14 h-14 bg-new-accent border-2 border-[#1a1a1a] flex items-center justify-center shadow-[3px_3px_0px_0px_#1a1a1a]">
+                <div className="flex flex-col items-center justify-center gap-5 py-16">
+                  <div className="flex h-14 w-14 items-center justify-center border-2 border-[#1a1a1a] bg-new-accent shadow-[3px_3px_0px_0px_#1a1a1a]">
                     <CheckCircle2 size={24} className="text-new-dark" />
                   </div>
                   <div className="text-center">
                     <h3
                       className={cn(
-                        "text-new-dark font-black text-xl uppercase tracking-tight mb-2",
+                        "mb-2 text-xl font-black uppercase tracking-tight text-new-dark",
                         inter.className,
-                      )}>
+                      )}
+                    >
                       Message Sent!
                     </h3>
-                    <p className="text-new-neutral text-sm">
+                    <p className="text-sm text-new-neutral">
                       We&apos;ll get back to you within 24 hours.
                     </p>
                   </div>
                   <button
                     onClick={() => setSubmitState(null)}
                     className={cn(
-                      "mt-2 px-6 py-2.5 bg-[#f0f0e8] text-new-dark text-xs font-black uppercase tracking-widest border-2 border-[#1a1a1a] shadow-[3px_3px_0px_0px_#1a1a1a] hover:-translate-y-0.5 hover:translate-x-0.5 hover:shadow-[1px_1px_0px_0px_#1a1a1a] transition-all duration-200",
+                      "mt-2 border-2 border-[#1a1a1a] bg-[#f0f0e8] px-6 py-2.5 text-xs font-black uppercase tracking-widest text-new-dark shadow-[3px_3px_0px_0px_#1a1a1a] transition-all duration-200 hover:-translate-y-0.5 hover:translate-x-0.5 hover:shadow-[1px_1px_0px_0px_#1a1a1a]",
                       inter.className,
-                    )}>
+                    )}
+                  >
                     Send Another Message
                   </button>
                 </div>
@@ -226,28 +233,30 @@ export default function Contact() {
                 <Form {...form}>
                   <form
                     onSubmit={form.handleSubmit(onSubmit)}
-                    className="space-y-5">
+                    className="space-y-5"
+                  >
                     {/* Server-level error banner (non-field error) */}
                     {submitState &&
                       !submitState.success &&
                       !submitState.errors && (
-                        <div className="flex items-center gap-3 p-3 border-2 border-red-500 bg-red-50 shadow-[2px_2px_0px_0px_#ef4444]">
+                        <div className="flex items-center gap-3 border-2 border-red-500 bg-red-50 p-3 shadow-[2px_2px_0px_0px_#ef4444]">
                           <AlertCircle
                             size={15}
-                            className="text-red-600 shrink-0"
+                            className="shrink-0 text-red-600"
                           />
                           <span
                             className={cn(
-                              "text-xs font-bold text-red-600 uppercase tracking-widest",
+                              "text-xs font-bold uppercase tracking-widest text-red-600",
                               inter.className,
-                            )}>
+                            )}
+                          >
                             {submitState.message}
                           </span>
                         </div>
                       )}
 
                     {/* Name + Email row */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                       <FormField
                         control={form.control}
                         name="name"
@@ -255,9 +264,10 @@ export default function Contact() {
                           <FormItem>
                             <FormLabel
                               className={cn(
-                                "text-[10px] uppercase tracking-[0.3em] font-bold text-new-dark",
+                                "text-[10px] font-bold uppercase tracking-[0.3em] text-new-dark",
                                 inter.className,
-                              )}>
+                              )}
+                            >
                               Full Name
                             </FormLabel>
                             <FormControl>
@@ -265,7 +275,7 @@ export default function Contact() {
                                 placeholder="Enter Your Name"
                                 {...field}
                                 className={cn(
-                                  "border-2 border-[#1a1a1a] rounded-none bg-[#f0f0e8] focus-visible:ring-0 focus-visible:border-new-accent placeholder:text-new-neutral/40 text-new-dark font-medium h-11 shadow-[2px_2px_0px_0px_#1a1a1a] focus:shadow-none transition-all",
+                                  "h-11 rounded-none border-2 border-[#1a1a1a] bg-[#f0f0e8] font-medium text-new-dark shadow-[2px_2px_0px_0px_#1a1a1a] transition-all placeholder:text-new-neutral/40 focus:shadow-none focus-visible:border-new-accent focus-visible:ring-0",
                                   inter.className,
                                 )}
                               />
@@ -281,9 +291,10 @@ export default function Contact() {
                           <FormItem>
                             <FormLabel
                               className={cn(
-                                "text-[10px] uppercase tracking-[0.3em] font-bold text-new-dark",
+                                "text-[10px] font-bold uppercase tracking-[0.3em] text-new-dark",
                                 inter.className,
-                              )}>
+                              )}
+                            >
                               Email Address
                             </FormLabel>
                             <FormControl>
@@ -292,7 +303,7 @@ export default function Contact() {
                                 type="email"
                                 {...field}
                                 className={cn(
-                                  "border-2 border-[#1a1a1a] rounded-none bg-[#f0f0e8] focus-visible:ring-0 focus-visible:border-new-accent placeholder:text-new-neutral/40 text-new-dark font-medium h-11 shadow-[2px_2px_0px_0px_#1a1a1a] focus:shadow-none transition-all",
+                                  "h-11 rounded-none border-2 border-[#1a1a1a] bg-[#f0f0e8] font-medium text-new-dark shadow-[2px_2px_0px_0px_#1a1a1a] transition-all placeholder:text-new-neutral/40 focus:shadow-none focus-visible:border-new-accent focus-visible:ring-0",
                                   inter.className,
                                 )}
                               />
@@ -311,9 +322,10 @@ export default function Contact() {
                         <FormItem>
                           <FormLabel
                             className={cn(
-                              "text-[10px] uppercase tracking-[0.3em] font-bold text-new-dark",
+                              "text-[10px] font-bold uppercase tracking-[0.3em] text-new-dark",
                               inter.className,
-                            )}>
+                            )}
+                          >
                             Subject
                           </FormLabel>
                           <FormControl>
@@ -321,7 +333,7 @@ export default function Contact() {
                               placeholder="How can we help you?"
                               {...field}
                               className={cn(
-                                "border-2 border-[#1a1a1a] rounded-none bg-[#f0f0e8] focus-visible:ring-0 focus-visible:border-new-accent placeholder:text-new-neutral/40 text-new-dark font-medium h-11 shadow-[2px_2px_0px_0px_#1a1a1a] focus:shadow-none transition-all",
+                                "h-11 rounded-none border-2 border-[#1a1a1a] bg-[#f0f0e8] font-medium text-new-dark shadow-[2px_2px_0px_0px_#1a1a1a] transition-all placeholder:text-new-neutral/40 focus:shadow-none focus-visible:border-new-accent focus-visible:ring-0",
                                 inter.className,
                               )}
                             />
@@ -339,9 +351,10 @@ export default function Contact() {
                         <FormItem>
                           <FormLabel
                             className={cn(
-                              "text-[10px] uppercase tracking-[0.3em] font-bold text-new-dark",
+                              "text-[10px] font-bold uppercase tracking-[0.3em] text-new-dark",
                               inter.className,
-                            )}>
+                            )}
+                          >
                             Message
                           </FormLabel>
                           <FormControl>
@@ -350,7 +363,7 @@ export default function Contact() {
                               rows={5}
                               {...field}
                               className={cn(
-                                "border-2 border-[#1a1a1a] rounded-none bg-[#f0f0e8] focus-visible:ring-0 focus-visible:border-new-accent placeholder:text-new-neutral/40 text-new-dark font-medium resize-none shadow-[2px_2px_0px_0px_#1a1a1a] focus:shadow-none transition-all",
+                                "resize-none rounded-none border-2 border-[#1a1a1a] bg-[#f0f0e8] font-medium text-new-dark shadow-[2px_2px_0px_0px_#1a1a1a] transition-all placeholder:text-new-neutral/40 focus:shadow-none focus-visible:border-new-accent focus-visible:ring-0",
                                 inter.className,
                               )}
                             />
@@ -365,9 +378,10 @@ export default function Contact() {
                       type="submit"
                       disabled={isPending}
                       className={cn(
-                        "w-full flex items-center justify-center gap-2 py-3.5 bg-new-accent text-new-dark text-sm font-black uppercase tracking-widest border-2 border-[#1a1a1a] shadow-[4px_4px_0px_0px_#1a1a1a] hover:-translate-y-1 hover:translate-x-1 hover:shadow-[2px_2px_0px_0px_#1a1a1a] disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:translate-x-0 disabled:hover:shadow-[4px_4px_0px_0px_#1a1a1a] transition-all duration-200",
+                        "flex w-full items-center justify-center gap-2 border-2 border-[#1a1a1a] bg-new-accent py-3.5 text-sm font-black uppercase tracking-widest text-new-dark shadow-[4px_4px_0px_0px_#1a1a1a] transition-all duration-200 hover:-translate-y-1 hover:translate-x-1 hover:shadow-[2px_2px_0px_0px_#1a1a1a] disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-x-0 disabled:hover:translate-y-0 disabled:hover:shadow-[4px_4px_0px_0px_#1a1a1a]",
                         inter.className,
-                      )}>
+                      )}
+                    >
                       {isPending ? (
                         <>
                           <Loader2 size={15} className="animate-spin" />

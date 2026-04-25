@@ -45,9 +45,10 @@ export default function About() {
     <div
       id="about"
       className={cn(
-        "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24  border-new-dark/10 relative overflow-hidden",
+        "relative mx-auto max-w-7xl overflow-hidden border-new-dark/10 px-4 py-24 sm:px-6 lg:px-8",
         inter.className,
-      )}>
+      )}
+    >
       {/* Grid bg */}
       {/* <div
         className="absolute inset-0 opacity-[0.025] pointer-events-none"
@@ -65,32 +66,33 @@ export default function About() {
           description="Clean, intuitive dashboards with powerful functionality — designed for the way your team works."
         />
 
-        <div className="relative max-w-6xl mx-auto">
+        <div className="relative mx-auto max-w-6xl">
           {/* Dashboard container — brutalist border */}
-          <div className="bg-[#f0f0e8] border-2 border-[#1a1a1a] shadow-[8px_8px_0px_0px_#1a1a1a] overflow-hidden">
+          <div className="overflow-hidden border-2 border-[#1a1a1a] bg-[#f0f0e8] shadow-[8px_8px_0px_0px_#1a1a1a]">
             {/* Title bar */}
-            <div className="bg-[#1a1a1a] px-4 sm:px-6 py-3 flex items-center justify-between">
+            <div className="flex items-center justify-between bg-[#1a1a1a] px-4 py-3 sm:px-6">
               <div className="flex items-center gap-2">
-                <div className="w-2.5 h-2.5 bg-[#ff5f57] border border-[#ff5f57]/50" />
-                <div className="w-2.5 h-2.5 bg-[#febc2e] border border-[#febc2e]/50" />
-                <div className="w-2.5 h-2.5 bg-[#28c840] border border-[#28c840]/50" />
+                <div className="h-2.5 w-2.5 border border-[#ff5f57]/50 bg-[#ff5f57]" />
+                <div className="h-2.5 w-2.5 border border-[#febc2e]/50 bg-[#febc2e]" />
+                <div className="h-2.5 w-2.5 border border-[#28c840]/50 bg-[#28c840]" />
               </div>
-              <div className="flex items-center gap-1.5 text-[11px] text-[#f0f0e8]/60 font-bold uppercase tracking-widest">
-                <span className="w-1.5 h-1.5 bg-emerald-400 animate-pulse" />
+              <div className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-widest text-[#f0f0e8]/60">
+                <span className="h-1.5 w-1.5 animate-pulse bg-emerald-400" />
                 Live
               </div>
             </div>
 
             {/* Dashboard body */}
             <div className="p-4 sm:p-6 lg:p-8">
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6">
+              <div className="grid grid-cols-1 gap-5 sm:gap-6 lg:grid-cols-12">
                 {/* Sidebar */}
-                <div className="hidden lg:flex lg:col-span-3 flex-col gap-1">
+                <div className="hidden flex-col gap-1 lg:col-span-3 lg:flex">
                   <p
                     className={cn(
-                      "text-[10px] uppercase tracking-[0.3em] text-new-neutral/40 font-bold px-2 mb-2",
+                      "mb-2 px-2 text-[10px] font-bold uppercase tracking-[0.3em] text-new-neutral/40",
                       inter.className,
-                    )}>
+                    )}
+                  >
                     Navigation
                   </p>
                   {[
@@ -103,11 +105,12 @@ export default function About() {
                     <div
                       key={i}
                       className={cn(
-                        "flex items-center gap-3 px-3 py-2.5 cursor-pointer transition-all duration-150 text-sm font-bold border-2 uppercase tracking-tight",
+                        "flex cursor-pointer items-center gap-3 border-2 px-3 py-2.5 text-sm font-bold uppercase tracking-tight transition-all duration-150",
                         item.active
-                          ? "bg-[#1a1a1a] text-[#f0f0e8] border-[#1a1a1a]"
-                          : "text-new-neutral hover:text-new-dark hover:bg-white border-transparent hover:border-[#1a1a1a]",
-                      )}>
+                          ? "border-[#1a1a1a] bg-[#1a1a1a] text-[#f0f0e8]"
+                          : "border-transparent text-new-neutral hover:border-[#1a1a1a] hover:bg-white hover:text-new-dark",
+                      )}
+                    >
                       <item.icon size={15} />
                       {item.label}
                     </div>
@@ -115,13 +118,14 @@ export default function About() {
 
                   <div className="mt-auto pt-6">
                     <div className="border-2 border-[#1a1a1a] bg-white p-4 shadow-[2px_2px_0px_0px_#1a1a1a]">
-                      <div className="flex items-center gap-2 mb-1">
+                      <div className="mb-1 flex items-center gap-2">
                         <User size={18} className="text-new-accent" />
                         <span
                           className={cn(
-                            "text-[11px] font-black text-new-dark uppercase tracking-tight",
+                            "text-[11px] font-black uppercase tracking-tight text-new-dark",
                             inter.className,
-                          )}>
+                          )}
+                        >
                           User
                         </span>
                       </div>
@@ -130,9 +134,9 @@ export default function About() {
                 </div>
 
                 {/* Main content */}
-                <div className="lg:col-span-9 space-y-4 sm:space-y-5">
+                <div className="space-y-4 sm:space-y-5 lg:col-span-9">
                   {/* Stats row */}
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
+                  <div className="grid grid-cols-1 gap-3 sm:grid-cols-3 sm:gap-4">
                     {[
                       {
                         label: "Total Revenue",
@@ -161,19 +165,21 @@ export default function About() {
                       <div
                         key={i}
                         className={cn(
-                          "p-4 sm:p-5 border-2 border-[#1a1a1a] shadow-[3px_3px_0px_0px_#1a1a1a]",
+                          "border-2 border-[#1a1a1a] p-4 shadow-[3px_3px_0px_0px_#1a1a1a] sm:p-5",
                           stat.dark ? "bg-[#1a1a1a] text-white" : "bg-white",
-                        )}>
-                        <div className="flex items-start justify-between mb-4">
+                        )}
+                      >
+                        <div className="mb-4 flex items-start justify-between">
                           <div
                             className={cn(
-                              "w-9 h-9 flex items-center justify-center border-2",
+                              "flex h-9 w-9 items-center justify-center border-2",
                               stat.dark
-                                ? "bg-white/10 border-white/20"
+                                ? "border-white/20 bg-white/10"
                                 : stat.accent
-                                  ? "bg-new-accent border-[#1a1a1a]"
-                                  : "bg-[#f0f0e8] border-[#1a1a1a]",
-                            )}>
+                                  ? "border-[#1a1a1a] bg-new-accent"
+                                  : "border-[#1a1a1a] bg-[#f0f0e8]",
+                            )}
+                          >
                             <stat.icon
                               size={16}
                               className={
@@ -183,15 +189,16 @@ export default function About() {
                           </div>
                           <span
                             className={cn(
-                              "text-[11px] font-bold flex items-center gap-0.5 px-2 py-0.5 border",
+                              "flex items-center gap-0.5 border px-2 py-0.5 text-[11px] font-bold",
                               stat.positive
                                 ? stat.dark
-                                  ? "bg-emerald-500/15 text-emerald-400 border-emerald-500/20"
-                                  : "bg-emerald-50 text-emerald-700 border-emerald-200"
+                                  ? "border-emerald-500/20 bg-emerald-500/15 text-emerald-400"
+                                  : "border-emerald-200 bg-emerald-50 text-emerald-700"
                                 : stat.dark
-                                  ? "bg-red-500/15 text-red-400 border-red-500/20"
-                                  : "bg-red-50 text-red-600 border-red-200",
-                            )}>
+                                  ? "border-red-500/20 bg-red-500/15 text-red-400"
+                                  : "border-red-200 bg-red-50 text-red-600",
+                            )}
+                          >
                             {stat.positive ? (
                               <ArrowUpRight size={11} />
                             ) : (
@@ -202,16 +209,18 @@ export default function About() {
                         </div>
                         <p
                           className={cn(
-                            "text-[11px] font-bold uppercase tracking-widest mb-0.5",
+                            "mb-0.5 text-[11px] font-bold uppercase tracking-widest",
                             stat.dark ? "text-white/40" : "text-new-neutral",
-                          )}>
+                          )}
+                        >
                           {stat.label}
                         </p>
                         <p
                           className={cn(
-                            "text-xl sm:text-2xl font-black tracking-tight",
+                            "text-xl font-black tracking-tight sm:text-2xl",
                             stat.dark ? "text-white" : "text-new-dark",
-                          )}>
+                          )}
+                        >
                           {stat.value}
                         </p>
                       </div>
@@ -219,30 +228,31 @@ export default function About() {
                   </div>
 
                   {/* Chart */}
-                  <div className="bg-white border-2 border-[#1a1a1a] p-4 sm:p-6 shadow-[3px_3px_0px_0px_#1a1a1a]">
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-5">
+                  <div className="border-2 border-[#1a1a1a] bg-white p-4 shadow-[3px_3px_0px_0px_#1a1a1a] sm:p-6">
+                    <div className="mb-5 flex flex-col justify-between gap-3 sm:flex-row sm:items-center">
                       <div>
                         <h3
                           className={cn(
-                            "text-new-dark font-black text-sm sm:text-base uppercase tracking-tight",
+                            "text-sm font-black uppercase tracking-tight text-new-dark sm:text-base",
                             inter.className,
-                          )}>
+                          )}
+                        >
                           Performance Overview
                         </h3>
-                        <p className="text-new-neutral text-xs mt-0.5 font-medium">
+                        <p className="mt-0.5 text-xs font-medium text-new-neutral">
                           Last 6 months
                         </p>
                       </div>
                       <div className="flex items-center gap-4 text-xs">
                         <div className="flex items-center gap-1.5">
-                          <span className="w-2 h-2 bg-new-accent border border-[#1a1a1a]" />
-                          <span className="text-new-neutral font-semibold uppercase tracking-wider text-[10px]">
+                          <span className="h-2 w-2 border border-[#1a1a1a] bg-new-accent" />
+                          <span className="text-[10px] font-semibold uppercase tracking-wider text-new-neutral">
                             Series A
                           </span>
                         </div>
                         <div className="flex items-center gap-1.5">
-                          <span className="w-2 h-2 bg-[#1a1a1a]" />
-                          <span className="text-new-neutral font-semibold uppercase tracking-wider text-[10px]">
+                          <span className="h-2 w-2 bg-[#1a1a1a]" />
+                          <span className="text-[10px] font-semibold uppercase tracking-wider text-new-neutral">
                             Series B
                           </span>
                         </div>
@@ -251,7 +261,8 @@ export default function About() {
                     <ResponsiveContainer width="100%" height={180}>
                       <AreaChart
                         data={chartData}
-                        margin={{ top: 5, right: 5, left: -20, bottom: 0 }}>
+                        margin={{ top: 5, right: 5, left: -20, bottom: 0 }}
+                      >
                         <defs>
                           <linearGradient id="gA" x1="0" y1="0" x2="0" y2="1">
                             <stop
@@ -330,26 +341,28 @@ export default function About() {
                   </div>
 
                   {/* Bottom row */}
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
                     {/* Recent Items */}
-                    <div className="bg-white border-2 border-[#1a1a1a] shadow-[3px_3px_0px_0px_#1a1a1a]">
-                      <div className="flex items-center justify-between px-4 py-3 border-b-2 border-[#1a1a1a] bg-[#1a1a1a]">
+                    <div className="border-2 border-[#1a1a1a] bg-white shadow-[3px_3px_0px_0px_#1a1a1a]">
+                      <div className="flex items-center justify-between border-b-2 border-[#1a1a1a] bg-[#1a1a1a] px-4 py-3">
                         <h4
                           className={cn(
-                            "font-black text-sm uppercase tracking-widest text-[#f0f0e8]",
+                            "text-sm font-black uppercase tracking-widest text-[#f0f0e8]",
                             inter.className,
-                          )}>
+                          )}
+                        >
                           Recent Items
                         </h4>
                         <button
                           className={cn(
-                            "text-[10px] font-bold text-[#f0f0e8]/50 hover:text-new-accent transition-colors uppercase tracking-widest",
+                            "text-[10px] font-bold uppercase tracking-widest text-[#f0f0e8]/50 transition-colors hover:text-new-accent",
                             inter.className,
-                          )}>
+                          )}
+                        >
                           View all
                         </button>
                       </div>
-                      <div className="p-3 space-y-1">
+                      <div className="space-y-1 p-3">
                         {[
                           {
                             name: "Project",
@@ -372,29 +385,32 @@ export default function About() {
                         ].map((tx, i) => (
                           <div
                             key={i}
-                            className="flex items-center justify-between p-2.5 hover:bg-[#f0f0e8] border-2 border-transparent hover:border-[#1a1a1a] transition-all duration-150 group cursor-pointer">
+                            className="group flex cursor-pointer items-center justify-between border-2 border-transparent p-2.5 transition-all duration-150 hover:border-[#1a1a1a] hover:bg-[#f0f0e8]"
+                          >
                             <div className="flex items-center gap-2.5">
-                              <div className="w-8 h-8 bg-[#f0f0e8] border-2 border-[#1a1a1a] flex items-center justify-center group-hover:bg-new-accent transition-colors">
-                                <tx.icon className="w-3.5 h-3.5 text-new-dark" />
+                              <div className="flex h-8 w-8 items-center justify-center border-2 border-[#1a1a1a] bg-[#f0f0e8] transition-colors group-hover:bg-new-accent">
+                                <tx.icon className="h-3.5 w-3.5 text-new-dark" />
                               </div>
                               <div>
                                 <p
                                   className={cn(
-                                    "text-xs font-black text-new-dark uppercase tracking-tight leading-tight",
+                                    "text-xs font-black uppercase leading-tight tracking-tight text-new-dark",
                                     inter.className,
-                                  )}>
+                                  )}
+                                >
                                   {tx.name}
                                 </p>
-                                <p className="text-[10px] text-new-neutral font-semibold">
+                                <p className="text-[10px] font-semibold text-new-neutral">
                                   {tx.category}
                                 </p>
                               </div>
                             </div>
                             <span
                               className={cn(
-                                "text-xs font-black text-new-dark tabular-nums",
+                                "text-xs font-black tabular-nums text-new-dark",
                                 inter.className,
-                              )}>
+                              )}
+                            >
                               {tx.value}
                             </span>
                           </div>
@@ -403,18 +419,19 @@ export default function About() {
                     </div>
 
                     {/* Quick Actions */}
-                    <div className="bg-[#1a1a1a] border-2 border-[#1a1a1a] shadow-[3px_3px_0px_0px_#1a1a1a]">
-                      <div className="flex items-center gap-2 px-4 py-3 border-b-2 border-white/10">
+                    <div className="border-2 border-[#1a1a1a] bg-[#1a1a1a] shadow-[3px_3px_0px_0px_#1a1a1a]">
+                      <div className="flex items-center gap-2 border-b-2 border-white/10 px-4 py-3">
                         <Zap size={14} className="text-new-accent" />
                         <h4
                           className={cn(
-                            "font-black text-sm uppercase tracking-widest text-[#f0f0e8]",
+                            "text-sm font-black uppercase tracking-widest text-[#f0f0e8]",
                             inter.className,
-                          )}>
+                          )}
+                        >
                           Quick Actions
                         </h4>
                       </div>
-                      <div className="p-3 grid grid-cols-2 gap-2">
+                      <div className="grid grid-cols-2 gap-2 p-3">
                         {[
                           { label: "Export Report", icon: ArrowUpRight },
                           { label: "View Docs", icon: FileText },
@@ -423,31 +440,34 @@ export default function About() {
                         ].map((action, i) => (
                           <button
                             key={i}
-                            className="bg-white/5 hover:bg-new-accent border-2 border-white/10 hover:border-new-accent p-3 flex items-center gap-2.5 transition-all duration-150 group text-left">
+                            className="group flex items-center gap-2.5 border-2 border-white/10 bg-white/5 p-3 text-left transition-all duration-150 hover:border-new-accent hover:bg-new-accent"
+                          >
                             <action.icon
                               size={13}
-                              className="text-new-accent group-hover:text-new-dark transition-colors shrink-0"
+                              className="shrink-0 text-new-accent transition-colors group-hover:text-new-dark"
                             />
                             <span
                               className={cn(
-                                "text-[11px] font-bold text-white/70 group-hover:text-new-dark transition-colors leading-tight uppercase tracking-tight",
+                                "text-[11px] font-bold uppercase leading-tight tracking-tight text-white/70 transition-colors group-hover:text-new-dark",
                                 inter.className,
-                              )}>
+                              )}
+                            >
                               {action.label}
                             </span>
                           </button>
                         ))}
                       </div>
-                      <div className="mx-3 mb-3 p-3 bg-new-accent/10 border-2 border-new-accent/20 flex items-center gap-2">
+                      <div className="mx-3 mb-3 flex items-center gap-2 border-2 border-new-accent/20 bg-new-accent/10 p-3">
                         <Shield
                           size={12}
-                          className="text-new-accent shrink-0"
+                          className="shrink-0 text-new-accent"
                         />
                         <span
                           className={cn(
-                            "text-[10px] text-new-accent font-bold uppercase tracking-widest",
+                            "text-[10px] font-bold uppercase tracking-widest text-new-accent",
                             inter.className,
-                          )}>
+                          )}
+                        >
                           End-to-end encrypted
                         </span>
                       </div>

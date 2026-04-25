@@ -39,12 +39,13 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="en">
       <body
         className={cn(
-          "antialiased bg-[#f0f0e8] text-zinc-800",
+          "bg-[#f0f0e8] text-zinc-800 antialiased",
           poppins.variable,
           inter.variable,
           montserrat.variable,
           geistmono.className,
-        )}>
+        )}
+      >
         <ReactQueryProvider>
           <Navbar />
           {children}
