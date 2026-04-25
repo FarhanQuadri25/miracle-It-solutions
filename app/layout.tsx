@@ -35,6 +35,9 @@ export const metadata: Metadata = {
   title: "Miracle IT Solutions",
   description: "A Complete Solution to customize softwares",
   metadataBase: new URL(SITE_URL),
+  icons: {
+    icon: "/MIS-logo.png",
+  },
   openGraph: {
     title: "Miracle IT Solutions",
     description: "A Complete Solution to customize softwares",

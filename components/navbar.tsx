@@ -35,7 +35,7 @@ const Navbar = () => {
                   "text-new-accent text-sm font-black",
                   inter.className,
                 )}>
-                MI
+                MIS
               </span>
             </div>
             <span
